@@ -34,13 +34,22 @@
             <label for="codigoPostal">Código Postal:</label>
             <input type="text" id="codigoPostal" name="codigoPostal" placeholder="38XXX" pattern="\d{5}" required>
             
+            <!-- <label for="dni">DNI/NIE:</label>
+            <select id="dniTipo" name="dniTipo" required>
+                <option value="" disabled selected>---</option>
+                <option value="dni">DNI</option>
+                <option value="nie">NIE</option>
+            </select>
+            <input type="text" id="dni" name="dni" placeholder="DNI/NIE" pattern="[0-9]{8}[A-Za-z]" required> -->
+
             <label for="dni">DNI/NIE:</label>
             <select id="dniTipo" name="dniTipo" required>
                 <option value="" disabled selected>---</option>
                 <option value="dni">DNI</option>
                 <option value="nie">NIE</option>
             </select>
-            <input type="text" id="dni" name="dni" placeholder="DNI/NIE" pattern="[0-9]{8}[A-Za-z]" required>
+            <input type="text" id="dni" name="dni" placeholder="DNI/NIE" pattern="([XYZxyz][0-9]{7}[A-Za-z]|[0-9]{8}[A-Za-z])" required>
+
 
             <label>Crear cuenta como:</label>
             <input type="radio" id="particular" name="cuenta" value="particular" required>
