@@ -33,14 +33,7 @@
       
             <label for="codigoPostal">Código Postal:</label>
             <input type="text" id="codigoPostal" name="codigoPostal" placeholder="38XXX" pattern="\d{5}" required>
-            
-            <!-- <label for="dni">DNI/NIE:</label>
-            <select id="dniTipo" name="dniTipo" required>
-                <option value="" disabled selected>---</option>
-                <option value="dni">DNI</option>
-                <option value="nie">NIE</option>
-            </select>
-            <input type="text" id="dni" name="dni" placeholder="DNI/NIE" pattern="[0-9]{8}[A-Za-z]" required> -->
+        
 
             <label for="dni">DNI/NIE:</label>
             <select id="dniTipo" name="dniTipo" required>
@@ -57,6 +50,7 @@
             <input type="radio" id="empresa" name="cuenta" value="empresa" required>
             <label for="empresa">Empresa</label>
             
+            <legend>Datos Personales</legend>
             <label for="nacimiento">Año de Nacimiento:</label>
             <select id="nacimiento" name="nacimiento" required>
                 <option value="" disabled selected>Seleccione el año</option>
@@ -77,7 +71,7 @@
             <label for="lectura">Lectura</label>
         </fieldset>
 
-        <!-- Fieldset de Datos Publicación -->
+
         <fieldset>
             <legend>Datos Publicación</legend>
             <label for="titulo">Título:</label>

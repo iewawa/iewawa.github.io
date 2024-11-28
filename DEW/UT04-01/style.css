@@ -1,0 +1,4 @@
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 0.5em; /* Adjust the value of the right margin as needed */
+    transform: scale(1.2);
+}
