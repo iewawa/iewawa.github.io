@@ -18,13 +18,32 @@ document.addEventListener('DOMContentLoaded', function () {
         actualizarContador(this, 'contadorDescripcion');
     });
 
+    document.getElementById('password').addEventListener('input', function () {
+        actualizarContador(this, 'contadorPassword');
+    });
+
+    // Mostrar/ocultar contraseña
+    document.getElementById('mostrarContraseña').addEventListener('change', togglePasswordVisibility);
+
     /**
-     * Actualiza el contador de caracteres debajo de un input.
+     * Alterna la visibilidad del texto de la contraseña.
+     */
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('password');
+        if (this.checked) {
+            passwordInput.type = 'text';
+        } else {
+            passwordInput.type = 'password';
+        }
+    }
+
+    /**
+     * Actualiza el contador de caracteres debajo del input.
      * @param {HTMLElement} input
      * @param {string} idContador
      */
     function actualizarContador(input, idContador) {
         const contador = document.getElementById(idContador);
-        contador.textContent = `${input.value.length}/${input.maxLength} caracteres`;
+        contador.textContent = `${input.value.length}/${input.maxLength || input.minLength} caracteres`;
     }
 });

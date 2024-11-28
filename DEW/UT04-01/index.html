@@ -9,7 +9,7 @@
 <body>
     <h1>UT04-01</h1>
     <form action="https://www.w3schools.com/action_page.php" method="post" id="formulario">
-        <!-- Fieldset de Datos Usuario -->
+
         <fieldset>
             <legend>Datos Usuario</legend>
             <label for="username">Nombre de Usuario:</label>
@@ -17,9 +17,9 @@
             
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" placeholder="Mínimo 5 caracteres" minlength="5" required>
+            <input type="checkbox" id="mostrarContraseña" onchange="togglePasswordVisibility()"> Mostrar contraseña
         </fieldset>
         
-        <!-- Fieldset de Datos Personales -->
         <fieldset>
             <legend>Datos Personales</legend>
             <label for="nombre">Nombre:</label>
@@ -29,7 +29,8 @@
             <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
 
             <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="(+34)666666666" pattern="\(\+34\)\d{9}" required>
+            <input type="tel" id="telefono" name="telefono" placeholder="(+34)666666666" pattern="(\+?[0-9]{1,4})?[0-9]{9}" required>
+
       
             <label for="codigoPostal">Código Postal:</label>
             <input type="text" id="codigoPostal" name="codigoPostal" placeholder="38XXX" pattern="\d{5}" required>
@@ -50,27 +51,27 @@
             <input type="radio" id="empresa" name="cuenta" value="empresa" required>
             <label for="empresa">Empresa</label>
             
-            <legend>Datos Personales</legend>
             <label for="nacimiento">Año de Nacimiento:</label>
             <select id="nacimiento" name="nacimiento" required>
                 <option value="" disabled selected>Seleccione el año</option>
             </select>
 
-            <label>Elige tus aficiones:</label>
-            <input type="checkbox" id="musica" name="aficiones" value="musica" required>
-            <label for="musica">Música</label>
-            <input type="checkbox" id="manualidades" name="aficiones" value="manualidades">
-            <label for="manualidades">Manualidades</label>
-            <input type="checkbox" id="deportes" name="aficiones" value="deportes">
-            <label for="deportes">Deportes</label>
-            <input type="checkbox" id="artes" name="aficiones" value="artes">
-            <label for="artes">Artes</label>
-            <input type="checkbox" id="videojuegos" name="aficiones" value="videojuegos">
-            <label for="videojuegos">Videojuegos</label>
-            <input type="checkbox" id="lectura" name="aficiones" value="lectura">
-            <label for="lectura">Lectura</label>
+            <div class="aficion-check">
+                <label>Elige tus aficiones:</label>
+                <input type="checkbox"  id="musica" name="aficiones" value="musica">
+                <label for="musica">Música</label>
+                <input type="checkbox"  id="manualidades" name="aficiones" value="manualidades">
+                <label for="manualidades">Manualidades</label>
+                <input type="checkbox" id="deportes" name="aficiones" value="deportes">
+                <label for="deportes">Deportes</label>
+                <input type="checkbox"  id="artes" name="aficiones" value="artes">
+                <label for="artes">Artes</label>
+                <input type="checkbox"  id="videojuegos" name="aficiones" value="videojuegos">
+                <label for="videojuegos">Videojuegos</label>
+                <input type="checkbox"  id="lectura" name="aficiones" value="lectura">
+                <label for="lectura">Lectura</label>
+            </div>
         </fieldset>
-
 
         <fieldset>
             <legend>Datos Publicación</legend>
