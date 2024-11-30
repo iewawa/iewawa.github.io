@@ -44,29 +44,44 @@ document.addEventListener('DOMContentLoaded', function () {
                 mostrarError(input, 'Este campo es obligatorio.');
             }
             
-            // Validar el formato del teléfono si es necesario
+            // Validar formato de teléfono
             if (input.type === 'tel' && valor !== '' && !validarTelefono(valor)) {
                 esValido = false;
                 mostrarError(input, 'Por favor, introduce un número de teléfono válido.');
             }
 
-            // Validar el formato del código postal si es necesario
+            // Validar formato del código postal
             if (input.id === 'codigoPostal' && valor !== '' && !validarCodigoPostal(valor)) {
                 esValido = false;
                 mostrarError(input, 'Por favor, introduce un código postal válido.');
             }
 
-            // Validar el formato del dni o nie si es necesario
+            // Validar formato del DNI o NIE
             if (input.id === 'dni' && valor !== '' && !validarDniNie(valor)) {
                 esValido = false;
                 mostrarError(input, 'Por favor, introduce DNI/NIE válido. Y asegúrese de poner las letras en mayúsculas.');
             }
 
-            // Validar números
-            // if (input.type === 'number' && isNaN(valor)) {
-            //     esValido = false;
-            //     mostrarError(input, 'Por favor, introduce un número válido.');
-            // }
+            // Validar el campo de cuenta (radio buttons)
+            if (input.name === 'cuenta' && !document.querySelector('input[name="cuenta"]:checked')) {
+                esValido = false;
+                mostrarError(input, 'Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
+            }
+
+            // Validar que al menos una afición sea seleccionada
+            if (input.name === 'aficiones[]' && input.checked === false) {
+                const aficiones = document.querySelectorAll('input[name="aficiones[]"]:checked');
+                if (aficiones.length === 0) {
+                    esValido = false;
+                    mostrarError(input, 'Por favor, selecciona al menos una afición.');
+                }
+            }
+
+            // Validación de la longitud mínima de la contraseña
+            if (input.id === 'password' && valor !== '' && valor.length < 5) {
+                esValido = false;
+                mostrarError(input, 'La contraseña debe tener al menos 5 caracteres.');
+            }
         });
 
         // Si todo es válido, enviar el formulario
@@ -84,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         error.textContent = mensaje;
         input.parentNode.insertBefore(error, input.nextSibling); // Inserta el mensaje justo después del campo
     }
-
 
     /*Valida el formato del número de teléfono*/
     function validarTelefono(telefono) {
