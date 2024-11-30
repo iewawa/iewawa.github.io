@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>UT04-01</h1>
-    <form action="https://www.w3schools.com/action_page.php" method="post" id="formulario" novalidate>
+    <form action="https://www.w3schools.com/action_page.php" method="post" id="formulario">
 
         <fieldset>
             <legend>Datos Usuario</legend>
@@ -30,14 +30,14 @@
             <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
 
             <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="(+34)666666666" pattern="(\+?[0-9]{1,4}\s?)?(\(?\d{3}\)?[\s.-]?)?[\d\s.-]{7,10}" required>
+            <input type="tel" id="telefono" name="telefono" placeholder="(+34)666666666" pattern="(\+?[0-9]{1,4})?[0-9]{9}" required>
 
       
             <label for="codigoPostal">Código Postal:</label>
-            <input type="text" id="codigoPostal" name="codigoPostal" placeholder="38XXX" pattern="^[0-9]{5,5}$" required>
+            <input type="text" id="codigoPostal" name="codigoPostal" placeholder="38XXX" pattern="\d{5}" required>
         
 
-            <label for="dniTipo">DNI/NIE:</label>
+            <label for="dni">DNI/NIE:</label>
             <select id="dniTipo" name="dniTipo" required>
                 <option value="" disabled selected>---</option>
                 <option value="dni">DNI</option>

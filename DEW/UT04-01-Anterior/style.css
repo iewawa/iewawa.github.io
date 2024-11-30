@@ -121,11 +121,3 @@ input[type="checkbox"] + label, input[type="radio"] + label {
     color: #555;
     font-size: 14px;
 }
-
-.error-message {
-    font-size: 12px;
-    color: rgb(197, 63, 88);
-    margin: 5px;
-    font-weight: bold;
-}
-

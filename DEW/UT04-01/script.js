@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectNacimiento = document.getElementById('nacimiento');
     const year = new Date().getFullYear();
 
-    // Generar años desde 1900 hasta el actual
+    // Genera años desde 1900 hasta el actual
     for (let i = 1900; i <= year; i++) {
         const option = document.createElement('option');
         option.value = i;
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         selectNacimiento.appendChild(option);
     }
 
-    // Actualizar contadores de texto
+    // Actualiza contadores de texto
     document.getElementById('titulo').addEventListener('input', function () {
         actualizarContador(this, 'contadorTitulo');
     });
@@ -18,30 +18,100 @@ document.addEventListener('DOMContentLoaded', function () {
         actualizarContador(this, 'contadorDescripcion');
     });
 
-    document.getElementById('password').addEventListener('input', function () {
-        actualizarContador(this, 'contadorPassword');
-    });
-
     // Mostrar/ocultar contraseña
     document.getElementById('mostrarContraseña').addEventListener('change', togglePasswordVisibility);
 
-    /**
-     * Alterna la visibilidad del texto de la contraseña.
-     */
-    function togglePasswordVisibility() {
-        const passwordInput = document.getElementById('password');
-        if (this.checked) {
-            passwordInput.type = 'text';
-        } else {
-            passwordInput.type = 'password';
+    // --------------------------- VALIDACIÓN ---------------------------
+
+    // Validar el formulario al enviarlo
+    const formulario = document.getElementById('formulario');
+    formulario.addEventListener('submit', function(e) {
+        e.preventDefault();  // Evitar el envío del formulario
+
+        let esValido = true;
+        const inputs = document.querySelectorAll('input, select, textarea');
+        
+        // Limpiar errores previos
+        document.querySelectorAll('.error-message').forEach(message => message.remove());
+        
+        // Validación de cada campo
+        inputs.forEach(input => {
+            const valor = input.value.trim();
+            
+            // Validar campos requeridos
+            if (input.hasAttribute('required') && !valor) {
+                esValido = false;
+                mostrarError(input, 'Este campo es obligatorio.');
+            }
+            
+            // Validar el formato del teléfono si es necesario
+            if (input.type === 'tel' && valor !== '' && !validarTelefono(valor)) {
+                esValido = false;
+                mostrarError(input, 'Por favor, introduce un número de teléfono válido.');
+            }
+
+            // Validar el formato del código postal si es necesario
+            if (input.id === 'codigoPostal' && valor !== '' && !validarCodigoPostal(valor)) {
+                esValido = false;
+                mostrarError(input, 'Por favor, introduce un código postal válido.');
+            }
+
+            // Validar el formato del dni o nie si es necesario
+            if (input.id === 'dni' && valor !== '' && !validarDniNie(valor)) {
+                esValido = false;
+                mostrarError(input, 'Por favor, introduce DNI/NIE válido. Y asegúrese de poner las letras en mayúsculas.');
+            }
+
+            // Validar números
+            // if (input.type === 'number' && isNaN(valor)) {
+            //     esValido = false;
+            //     mostrarError(input, 'Por favor, introduce un número válido.');
+            // }
+        });
+
+        // Si todo es válido, enviar el formulario
+        if (esValido) {
+            formulario.submit(); // Se envía el formulario manualmente
         }
+    });
+
+    // --------------------------- FUNCIONES ---------------------------
+
+    /*Muestra el mensaje de error debajo de un campo*/
+    function mostrarError(input, mensaje) {
+        const error = document.createElement('span');
+        error.classList.add('error-message');
+        error.textContent = mensaje;
+        input.parentNode.insertBefore(error, input.nextSibling); // Inserta el mensaje justo después del campo
     }
 
-    /**
-     * Actualiza el contador de caracteres debajo del input.
-     * @param {HTMLElement} input
-     * @param {string} idContador
-     */
+
+    /*Valida el formato del número de teléfono*/
+    function validarTelefono(telefono) {
+        const regex = /(\+?[0-9]{1,4}\s?)?(\(?\d{3}\)?[\s.-]?)?[\d\s.-]{7,10}/; 
+        return regex.test(telefono);
+    }
+
+    /*Valida el formato del código postal*/
+    function validarCodigoPostal(codigoPostal) {
+        const regex = /^[0-9]{5,5}$/; 
+        return regex.test(codigoPostal);
+    }
+
+    /*Valida el formato del DNI o NIE*/
+    function validarDniNie(valor) {
+        const dniRegex = /^[0-9]{8}[A-Z]$/;
+        const nieRegex = /^[XYZ][0-9]{7}[A-Z]$/;
+        return dniRegex.test(valor) || nieRegex.test(valor);
+    }
+
+    /*Alterna la visibilidad de la contraseña*/
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('password');
+        passwordInput.type = this.checked ? 'text' : 'password';
+    }
+
+    /*Actualiza el contador de caracteres debajo del input*/
     function actualizarContador(input, idContador) {
         const contador = document.getElementById(idContador);
         contador.textContent = `${input.value.length}/${input.maxLength || input.minLength} caracteres`;
