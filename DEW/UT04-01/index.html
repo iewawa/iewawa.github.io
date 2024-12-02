@@ -36,22 +36,24 @@
             <label for="codigoPostal">Código Postal:</label>
             <input type="text" id="codigoPostal" name="codigoPostal" placeholder="38XXX" pattern="^[0-9]{5}$" required>
         
-
+            
             <label for="dniTipo">DNI/NIE:</label>
+            <div id="divDniNie">
             <select id="dniTipo" name="dniTipo" required>
                 <option value="" disabled selected>---</option>
                 <option value="dni">DNI</option>
                 <option value="nie">NIE</option>
             </select>
             <input type="text" id="dniNie" name="dni" placeholder="DNI/NIE" pattern="([0-9]{8}[A-Za-z]|[XYZxyz][0-9]{7}[A-Za-z])" required>
-
-        <div id="cuentaradio">
-            <label>Crear cuenta como:</label>
-            <input type="radio" id="particular" name="cuenta" value="particular" required>
-            <label for="particular">Particular</label>
-            <input type="radio" id="empresa" name="cuenta" value="empresa" required>
-            <label for="empresa">Empresa</label>
-        </div>
+            </div>
+        
+            <div id="cuentaradio">
+                <label>Crear cuenta como:</label>
+                <input type="radio" id="particular" name="cuenta" value="particular" required>
+                <label for="particular">Particular</label>
+                <input type="radio" id="empresa" name="cuenta" value="empresa" required>
+                <label for="empresa">Empresa</label>
+            </div>
             <!-- <label for="nacimiento">Año de Nacimiento:</label>
                 <select id="nacimiento" name="nacimiento" required>
                     <option value="" disabled selected>Seleccione el año</option>

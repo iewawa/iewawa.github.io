@@ -1,4 +1,5 @@
-body {
+body,
+html {
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     background-color: #e7ede5;
     color: #333;
@@ -48,7 +49,7 @@ select, textarea {
     width: 100%;
     margin-bottom: 10px;
     padding: 8px;
-    font-size: 1em;
+    /* font-size: 1em; */
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
@@ -56,10 +57,13 @@ select, textarea {
     transition: border-color 0.3s ease;
 }
 
+#divDniNie{
+    display: flex;
+    margin-top:1em;
+}
 select#dniTipo {
     width: 5em;
 }
-
 select#nacimiento {
     width: 12em;
 }
@@ -85,10 +89,23 @@ input:focus, textarea:focus, select:focus {
     border-radius: 6px;
 }
 
-.aficion-check {
+#aficioncheck {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+}
+
+input[type="text"], 
+input[type="tel"], 
+input[type="password"], 
+input[type="number"]{
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
 }
 
 input[type="checkbox"], input[type="radio"] {
