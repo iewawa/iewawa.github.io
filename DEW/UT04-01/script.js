@@ -1,5 +1,17 @@
+// DOM static selector
+const DOM = {
+    selectNacimiento: document.getElementById('nacimiento'),
+    titulo: document.getElementById('titulo'),
+    descripcion: document.getElementById('descripcion'),
+    mostrarContraseña: document.getElementById('mostrarContraseña'),
+    formulario: document.getElementById('formulario'),
+    contadorTitulo: document.getElementById('contadorTitulo'),
+    contadorDescripcion: document.getElementById('contadorDescripcion'),
+    password: document.getElementById('password'),
+    cuenta: document.querySelector('input[name="cuenta"]')
+};
+
 document.addEventListener('DOMContentLoaded', function () {
-    const selectNacimiento = document.getElementById('nacimiento');
     const year = new Date().getFullYear();
 
     // Genera años desde 1900 hasta el actual
@@ -7,26 +19,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const option = document.createElement('option');
         option.value = i;
         option.textContent = i;
-        selectNacimiento.appendChild(option);
+        DOM.selectNacimiento.appendChild(option);
     }
 
-    // Actualiza contadores de texto
-    document.getElementById('titulo').addEventListener('input', function () {
-        actualizarContador(this, 'contadorTitulo');
-    });
-    document.getElementById('descripcion').addEventListener('input', function () {
-        actualizarContador(this, 'contadorDescripcion');
-    });
-
     // Mostrar/ocultar contraseña
-    document.getElementById('mostrarContraseña').addEventListener('change', togglePasswordVisibility);
+    DOM.mostrarContraseña.addEventListener('change', toggleVisibilidadContraseña);
 
     // --------------------------- VALIDACIÓN ---------------------------
 
     // Validar el formulario al enviarlo
-    const formulario = document.getElementById('formulario');
-    formulario.addEventListener('submit', function(e) {
-        e.preventDefault();  // Evitar el envío del formulario
+    DOM.formulario.addEventListener('submit', function(e) {
+
+        // e.preventDefault();  // Evitar el envío del formulario
 
         let esValido = true;
         const inputs = document.querySelectorAll('input, select, textarea');
@@ -36,58 +40,105 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Validación de cada campo
         inputs.forEach(input => {
+
             const valor = input.value.trim();
-            
+
             // Validar campos requeridos
             if (input.hasAttribute('required') && !valor) {
-                esValido = false;
-                mostrarError(input, 'Este campo es obligatorio.');
-            }
-            
-            // Validar formato de teléfono
-            if (input.type === 'tel' && valor !== '' && !validarTelefono(valor)) {
-                esValido = false;
-                mostrarError(input, 'Por favor, introduce un número de teléfono válido.');
-            }
-
-            // Validar formato del código postal
-            if (input.id === 'codigoPostal' && valor !== '' && !validarCodigoPostal(valor)) {
-                esValido = false;
-                mostrarError(input, 'Por favor, introduce un código postal válido.');
-            }
-
-            // Validar formato del DNI o NIE
-            if (input.id === 'dni' && valor !== '' && !validarDniNie(valor)) {
-                esValido = false;
-                mostrarError(input, 'Por favor, introduce DNI/NIE válido. Y asegúrese de poner las letras en mayúsculas.');
-            }
-
-            // Validar el campo de cuenta (radio buttons)
-            if (input.name === 'cuenta' && !document.querySelector('input[name="cuenta"]:checked')) {
-                esValido = false;
-                mostrarError(input, 'Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
-            }
-
-            // Validar que al menos una afición sea seleccionada
-            if (input.name === 'aficiones[]' && input.checked === false) {
-                const aficiones = document.querySelectorAll('input[name="aficiones[]"]:checked');
-                if (aficiones.length === 0) {
-                    esValido = false;
-                    mostrarError(input, 'Por favor, selecciona al menos una afición.');
-                }
+            e.preventDefault();  // Evitar el envío del formulario
+            esValido = false;
+            mostrarError(input, 'Este campo es obligatorio.');
             }
 
             // Validación de la longitud mínima de la contraseña
             if (input.id === 'password' && valor !== '' && valor.length < 5) {
-                esValido = false;
-                mostrarError(input, 'La contraseña debe tener al menos 5 caracteres.');
+            e.preventDefault();  // Evitar el envío del formulario
+            esValido = false;
+            mostrarError(input, 'La contraseña debe tener al menos 5 caracteres.');
             }
+
+            // Validar formato de teléfono
+            if (input.type === 'tel' && valor !== '' && !validarTelefono(valor)) {
+            e.preventDefault();  // Evitar el envío del formulario
+            esValido = false;
+            mostrarError(input, 'Por favor, introduce un número de teléfono válido.');
+            }
+
+            // Validar formato del código postal
+            if (input.id === 'codigoPostal' && valor !== '' && !validarCodigoPostal(valor)) {
+            e.preventDefault();  // Evitar el envío del formulario
+            esValido = false;
+            mostrarError(input, 'Por favor, introduce un código postal válido.');
+            }
+
+            // Validar formato del DNI o NIE
+            if (input.id === 'dni' && valor !== '' && !validarDniNie(valor)) {
+            e.preventDefault();  // Evitar el envío del formulario
+            esValido = false;
+            mostrarError(input, 'Por favor, introduce DNI/NIE válido. Y asegúrese de poner las letras en mayúsculas.');
+            }
+
+            // Validar el campo de cuenta (radio buttons)
+            if (input.name === 'cuenta' && !document.querySelector('input[name="cuenta"]:checked')) {
+            e.preventDefault();  // Evitar el envío del formulario
+            esValido = false;
+            mostrarError(input, 'Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
+            }
+
+            // Validar que al menos dos aficiones sean seleccionadas
+            // const aficiones = document.querySelectorAll('input[name="aficiones"]:checked');
+            // if (aficiones.length < 2) {
+            // e.preventDefault();  // Evitar el envío del formulario
+            // esValido = false;
+            // mostrarError(input, 'Por favor, selecciona al menos dos aficiones.');
+            // } else {
+            // // Guardar aficiones seleccionadas en un array
+            // const aficionesSeleccionadas = Array.from(aficiones).map(aficion => aficion.value);
+
+            // // Crear un campo oculto para enviar las aficiones seleccionadas
+            // const aficionesInput = document.createElement('input');
+            // aficionesInput.type = 'hidden';
+            // aficionesInput.name = 'aficionesSeleccionadas';
+            // aficionesInput.value = JSON.stringify(aficionesSeleccionadas);
+
+            // DOM.formulario.appendChild(aficionesInput);
+            // }
+
+            // Seleccionar todos los checkboxes dentro del contenedor .aficion-check, excepto los que tienen el atributo data-ignore
+            const checkboxes = document.querySelectorAll('.aficion-check input[type="checkbox"]');
+            // const checkboxes = document.querySelectorAll('.aficion-check input[type="checkbox"]:not([data-ignore])');
+
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const seleccionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+
+                if (seleccionados.length < 2) {
+                    e.preventDefault(); // Evitar el envío del formulario
+                    alert('Por favor, selecciona al menos dos aficiones.');
+                    return;
+                }
+
+                // Crear un array con los valores de las aficiones seleccionadas
+                const aficionesSeleccionadas = seleccionados.map(checkbox => checkbox.value);
+
+                // Crear un campo oculto para enviar las aficiones seleccionadas
+                const aficionesInput = document.createElement('input');
+                aficionesInput.type = 'hidden';
+                aficionesInput.name = 'aficionesSeleccionadas';
+                aficionesInput.value = JSON.stringify(aficionesSeleccionadas);
+
+                this.appendChild(aficionesInput);
         });
+
+    });
+
+
 
         // Si todo es válido, enviar el formulario
         if (esValido) {
-            formulario.submit(); // Se envía el formulario manualmente
+            DOM.formulario.submit(); // Se envía el formulario manualmente
         }
+
+        
     });
 
     // --------------------------- FUNCIONES ---------------------------
@@ -120,10 +171,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /*Alterna la visibilidad de la contraseña*/
-    function togglePasswordVisibility() {
-        const passwordInput = document.getElementById('password');
-        passwordInput.type = this.checked ? 'text' : 'password';
+    function toggleVisibilidadContraseña() {
+        DOM.password.type = this.checked ? 'text' : 'password';
     }
+
+
+    // Actualiza contadores de texto
+    // ---- Esto se podria hacer tambien con keydown y change en lugar de input
+    DOM.titulo.addEventListener('input', function () {
+        actualizarContador(this, 'contadorTitulo');
+    });
+    DOM.descripcion.addEventListener('input', function () {
+        actualizarContador(this, 'contadorDescripcion');
+    });
 
     /*Actualiza el contador de caracteres debajo del input*/
     function actualizarContador(input, idContador) {

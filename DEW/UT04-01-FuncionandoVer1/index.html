@@ -9,7 +9,6 @@
 <body>
     <h1>UT04-01</h1>
     <form action="https://www.w3schools.com/action_page.php" method="post" id="formulario" novalidate>
-        <!-- action="https://www.w3schools.com/action_page.php" -->
 
         <fieldset>
             <legend>Datos Usuario</legend>
@@ -53,7 +52,6 @@
             <input type="radio" id="empresa" name="cuenta" value="empresa" required>
             <label for="empresa">Empresa</label>
             
-            <!-- Si no hubiese un placeholder ni un input disabled es importante no poner el required -->
             <label for="nacimiento">Año de Nacimiento:</label>
             <select id="nacimiento" name="nacimiento" required>
                 <option value="" disabled selected>Seleccione el año</option>
@@ -61,17 +59,17 @@
 
             <div class="aficion-check">
                 <label>Elige tus aficiones:</label>
-                <input type="checkbox"  id="musica" name="musica" value="musica">
+                <input type="checkbox"  id="musica" name="aficiones[]" value="musica">
                 <label for="musica">Música</label>
-                <input type="checkbox"  id="manualidades" name="manualidades" value="manualidades">
+                <input type="checkbox"  id="manualidades" name="aficiones[]" value="manualidades">
                 <label for="manualidades">Manualidades</label>
-                <input type="checkbox" id="deportes" name="deportes" value="deportes">
+                <input type="checkbox" id="deportes" name="aficiones[]" value="deportes">
                 <label for="deportes">Deportes</label>
-                <input type="checkbox"  id="artes" name="artes" value="artes">
+                <input type="checkbox"  id="artes" name="aficiones[]" value="artes">
                 <label for="artes">Artes</label>
-                <input type="checkbox"  id="videojuegos" name="videojuegos" value="videojuegos">
+                <input type="checkbox"  id="videojuegos" name="aficiones[]" value="videojuegos">
                 <label for="videojuegos">Videojuegos</label>
-                <input type="checkbox"  id="lectura" name="lectura" value="lectura">
+                <input type="checkbox"  id="lectura" name="aficiones[]" value="lectura">
                 <label for="lectura">Lectura</label>
             </div>
         </fieldset>
