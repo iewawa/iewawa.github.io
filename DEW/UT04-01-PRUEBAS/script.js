@@ -70,7 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Validar el campo de cuenta (radio buttons)
             if (input.name === 'cuenta' && !document.querySelector('input[name="cuenta"]:checked')) {
                 e.preventDefault(); // Evitar el envío del formulario
-                mostrarError(input, 'Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
+                const tipoCuentaDiv = document.querySelector('.cuenta-radio');
+                mostrarError(tipoCuentaDiv, 'Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
             }
         });
 
@@ -111,14 +112,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* Valida el formato del código postal */
     function validarCodigoPostal(codigoPostal) {
-        const regex = /^[0-9]{5,5}$/;
+        const regex = /^[0-9]{5}$/;
         return regex.test(codigoPostal);
+    }
+
+    // Pre-fill the postal code input with '38'
+    const codigoPostalInput = document.getElementById('codigoPostal');
+    if (codigoPostalInput) {
+        codigoPostalInput.value = '38';
+        codigoPostalInput.addEventListener('input', function () {
+            if (!this.value.startsWith('38')) {
+                this.value = '38' + this.value.slice(2);
+            }
+        });
     }
 
     /* Valida el formato del DNI o NIE */
     function validarDniNie(valor) {
-        const dniRegex = /^[0-9]{8}[A-Z]$/;
-        const nieRegex = /^[XYZ][0-9]{7}[A-Z]$/;
+        const dniRegex = /^[0-9]{8}[A-Za-z]$/;
+        const nieRegex = /^[XYZxyz][0-9]{7}[A-Za-z]$/;
         return dniRegex.test(valor) || nieRegex.test(valor);
     }
 

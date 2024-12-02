@@ -46,13 +46,13 @@
             </select>
             <input type="text" id="dni-nie" name="dni" placeholder="DNI/NIE" pattern="([XYZxyz][0-9]{7}[A-Za-z]|[0-9]{8}[A-Za-z])" required>
 
-
+        <div class="cuenta-radio">
             <label>Crear cuenta como:</label>
             <input type="radio" id="particular" name="cuenta" value="particular" required>
             <label for="particular">Particular</label>
             <input type="radio" id="empresa" name="cuenta" value="empresa" required>
             <label for="empresa">Empresa</label>
-            
+        </div>
             <!-- Si no hubiese un placeholder ni un input disabled es importante no poner el required -->
             <label for="nacimiento">Año de Nacimiento:</label>
             <select id="nacimiento" name="nacimiento" required>
