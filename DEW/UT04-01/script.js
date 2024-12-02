@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Validar al menos dos aficiones seleccionadas
-        const checkboxes = document.querySelectorAll('.aficioncheck input[type="checkbox"]');
+        const checkboxes = document.querySelectorAll('#aficioncheck input[type="checkbox"]');
 
         const seleccionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
 
