@@ -1,14 +1,21 @@
 // DOM static selector
 const DOM = {
-    selectNacimiento: document.getElementById('nacimiento'),
+    username: document.getElementById('username'),
+    password: document.getElementById('password'),
+    checkMostrarContrasena: document.getElementById('mostrarContraseña'),
+    telefono: document.getElementById('telefono'),
+    codigoPostal: document.getElementById('codigoPostal'),
+    dniTipoSelect: document.getElementById('dniTipo'),
+    dniNieInput: document.getElementById('dniNie'),
+    cuentaRadio: document.getElementById('cuentaradio'),
+    selectAnioNacimiento: document.getElementById('nacimiento'),
+    aficionCheck: document.querySelector('.aficioncheck'),
+    formulario: document.getElementById('formulario'),
+    cuenta: document.querySelector('input[name="cuenta"]'),
     titulo: document.getElementById('titulo'),
     descripcion: document.getElementById('descripcion'),
-    mostrarContraseña: document.getElementById('mostrarContraseña'),
-    formulario: document.getElementById('formulario'),
     contadorTitulo: document.getElementById('contadorTitulo'),
-    contadorDescripcion: document.getElementById('contadorDescripcion'),
-    password: document.getElementById('password'),
-    cuenta: document.querySelector('input[name="cuenta"]')
+    contadorDescripcion: document.getElementById('contadorDescripcion')
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -19,10 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const option = document.createElement('option');
         option.value = i;
         option.textContent = i;
-        DOM.selectNacimiento.appendChild(option);
+        DOM.selectAnioNacimiento.appendChild(option);
     }
     // Mostrar/ocultar contraseña
-    DOM.mostrarContraseña.addEventListener('change', toggleVisibilidadContraseña);
+    DOM.checkMostrarContrasena.addEventListener('change', toggleVisibilidadContraseña);
 
     // --------------------------- VALIDACIÓN ---------------------------
 
@@ -35,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Validación de cada campo
         inputs.forEach(input => {
+
             const valor = input.value.trim();
 
             // Validar campos requeridos
@@ -45,45 +53,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Validación de la longitud mínima de la contraseña
             if (input.id === 'password' && valor !== '' && valor.length < 5) {
-                e.preventDefault(); // Evitar el envío del formulario
+                e.preventDefault(); 
                 mostrarError(input, 'La contraseña debe tener al menos 5 caracteres.');
             }
 
             // Validar formato de teléfono
             if (input.type === 'tel' && valor !== '' && !validarTelefono(valor)) {
-                e.preventDefault(); // Evitar el envío del formulario
+                e.preventDefault(); 
                 mostrarError(input, 'Por favor, introduce un número de teléfono válido.');
             }
 
             // Validar formato del código postal
             if (input.id === 'codigoPostal' && valor !== '' && !validarCodigoPostal(valor)) {
-                e.preventDefault(); // Evitar el envío del formulario
+                e.preventDefault(); 
                 mostrarError(input, 'Por favor, introduce un código postal válido.');
             }
 
             // Validar formato del DNI o NIE
-            if (input.id === 'dni-nie' && valor !== '' && !validarDniNie(valor)) {
-                e.preventDefault(); // Evitar el envío del formulario
+            if (input.id === 'dniNie' && valor !== '' && !validarDniNie(valor)) {
+                e.preventDefault(); 
                 mostrarError(input, 'Por favor, introduce DNI/NIE válido. Y asegúrese de poner las letras en mayúsculas.');
             }
 
             // Validar el campo de cuenta (radio buttons)
             if (input.name === 'cuenta' && !document.querySelector('input[name="cuenta"]:checked')) {
-                e.preventDefault(); // Evitar el envío del formulario
-                const tipoCuentaDiv = document.querySelector('.cuenta-radio');
+                e.preventDefault(); 
+                const tipoCuentaDiv = document.querySelector('#cuentaradio');
                 mostrarError(tipoCuentaDiv, 'Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
             }
         });
 
         // Validar al menos dos aficiones seleccionadas
-        const checkboxes = document.querySelectorAll('.aficion-check input[type="checkbox"]');
+        const checkboxes = document.querySelectorAll('.aficioncheck input[type="checkbox"]');
+
         const seleccionados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
 
         if (seleccionados.length < 2) {
-            e.preventDefault(); // Evitar el envío del formulario
-            const errorDiv = document.querySelector('.aficion-check');
+            e.preventDefault(); 
+            const errorDiv = document.querySelector('#aficioncheck');
             mostrarError(errorDiv, 'Por favor, selecciona al menos dos aficiones.');
-            // alert('Por favor, selecciona al menos dos aficiones.');
         } else {
             // Crear campo oculto para enviar aficiones seleccionadas
             const aficionesSeleccionadas = seleccionados.map(checkbox => checkbox.value);
@@ -93,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
             aficionesInput.value = aficionesSeleccionadas.join('&');
             DOM.formulario.appendChild(aficionesInput);
         }
+
     });
     // --------------------------- FUNCIONES ---------------------------
 
