@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Validar formato del código postal
             if (input.id === 'codigoPostal' && valor !== '' && !validarCodigoPostal(valor)) {
-                e.preventDefault(); 
-                mostrarError(input, 'Por favor, introduce un código postal válido.');
+                esValido = false;
+                mostrarError(input, 'Por favor, introduce un código postal válido. Debe empezar con "38".');
             }
 
             // Validar formato del DNI o NIE
