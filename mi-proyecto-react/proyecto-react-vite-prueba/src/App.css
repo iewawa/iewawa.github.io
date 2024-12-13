@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+table {
+  border: #617dfbaa 1px solid;
+  margin: 1em;
+  border-collapse: collapse;
+}
+table th {
+  border: #3f62ffaa 1px solid;
+  background-color: #617dfbaa;
+  padding: 0.5em;
+}
+table td {
+  border: #617dfbaa 1px solid;
+  padding: 0.5em;
+}
