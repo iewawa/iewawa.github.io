@@ -6,6 +6,8 @@ let personas = [];
 
 function Contenedor() {
     const [numPersonas, setNumPersonas] = useState(0);
+    // Las variables de estado cada vez que cambian se vuelve a renderizar el componente,
+    //  es decir, se vuelve a ejecutar el return
 
     function addPersona(persona){
         console.log("addPersona");
