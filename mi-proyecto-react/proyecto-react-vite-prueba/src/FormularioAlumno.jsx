@@ -58,6 +58,19 @@ function FormularioAlumno({ addAlumno }) {
     setGrupo("A");
     setErrores({});
   };
+// //////////////////
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     if (name === "id") {
+//       setId(value);
+//     } else if (name === "nombre") {
+//       setNombre(value);
+//     } else if (name === "grupo") {
+//       setGrupo(value);
+//     }
+//   };
+
+// ////////////////////
 
   return (
     <>
