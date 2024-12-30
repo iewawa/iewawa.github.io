@@ -71,3 +71,16 @@ table td {
   border: #617dfbaa 1px solid;
   padding: 0.5em;
 }
+
+
+.error {
+  color: #ae2323; 
+  font-size: 0.8em; 
+  margin-top: 5px; 
+}
+
+
+input:invalid, select:invalid {
+  border-color: #ae2323; 
+}
+

@@ -13,7 +13,7 @@ export default function Grupo() {
         {alumnos
           .filter((alumno) => alumno.grupo === parametros.letra)
           .map((alumno, index) => (
-            <li key={index}>{alumno.nombre}</li>
+            <li key={index}>{alumno.nombre} - Id: {alumno.id}</li>
           ))}
       </ul>
     </>

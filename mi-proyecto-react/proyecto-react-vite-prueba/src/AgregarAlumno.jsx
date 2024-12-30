@@ -13,9 +13,8 @@ const AgregarAlumno = () => {
 
     return (
         <>
-            <h2>Contenedor</h2>
-            <ListaAlumnos alumnos={alumnos}/>
             <FormularioAlumno addAlumno={addAlumno}/>
+            <ListaAlumnos alumnos={alumnos}/>
         </>
     );
 };

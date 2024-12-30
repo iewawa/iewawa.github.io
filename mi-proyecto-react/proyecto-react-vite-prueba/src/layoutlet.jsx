@@ -8,7 +8,8 @@ export default function Layoutlet() {
             <Link to="/">Inicio | </Link>
             <Link to="/Centro">Centro | </Link>
             <Link to="/Daw2"> 2º DAW  | </Link>
-            <Link to="/AgregarAlumno"> Agregar Alumno</Link>
+            {/* <Link to="/AgregarAlumno"> Agregar Alumno</Link> */}
+            <button onClick={() => window.location.href='/AgregarAlumno'}>Agregar Alumno</button>
         </nav>
         <div>
             <Outlet/>
