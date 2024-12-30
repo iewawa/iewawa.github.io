@@ -1,17 +1,9 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
 import './App.css'
-
-const alumnos = [
-  {grupo:"A",nombre:"Juan"},
-  {grupo:"A",nombre:"Eva"},
-  {grupo:"B",nombre:"Ana"},
-  {grupo:"B",nombre:"Julia"},
-  {grupo:"B",nombre:"Antonio"}
-]
+import { alumnos } from './ListaAlumnos.jsx'
 
 
-export default function grupo() {
+export default function Grupo() {
   const parametros = useParams()
 
   return (
