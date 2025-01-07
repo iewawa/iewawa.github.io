@@ -22,15 +22,17 @@ function FormularioAlumno({ addAlumno }) {
     }
     if (!nombre) {
       nuevosErrores.nombre = "El nombre es obligatorio.";
-    } else if (nombre.length < 4 || nombre.length > 20) {
-      nuevosErrores.nombre =
-        "El nombre debe tener entre 4 y 20 caracteres.";
+    } else if (nombre.length < 3 || nombre.length > 20) {
+      nuevosErrores.nombre = "El nombre debe tener entre 3 y 20 caracteres.";
+    } else if (!/^[a-zA-Z\s]+$/.test(nombre)) {
+      nuevosErrores.nombre = "El nombre solo debe contener letras.";
     }
     if (!grupo) {
       nuevosErrores.grupo = "Debes seleccionar un grupo.";
     }
     setErrores(nuevosErrores);
-    return Object.keys(nuevosErrores).length === 0;  // Retorna true si no hay errores
+    // Retorna true si no hay errores
+    return Object.keys(nuevosErrores).length === 0;
   };
 
   const handleSubmit = (e) => {
@@ -40,7 +42,7 @@ function FormularioAlumno({ addAlumno }) {
       return;
     }
 
-    const unAlumno = { id, nombre, grupo };
+    const unAlumno = { id: parseInt(id, 10), grupo, nombre };
     addAlumno(unAlumno);
 
     setId("");
@@ -61,7 +63,7 @@ function FormularioAlumno({ addAlumno }) {
             id="id"
             value={id}
             onChange={(e) => setId(e.target.value)}
-            // required // Dejo comentado el required para que se aplique la validacion que he hecho yo por js y salgan mis mensajes
+            // required
           />
           {errores.id && <p className="error">{errores.id}</p>}
         </div>
@@ -94,7 +96,8 @@ function FormularioAlumno({ addAlumno }) {
           {errores.grupo && <p className="error">{errores.grupo}</p>}
         </div>
 
-        <button type="submit">Enviar</button>
+        <button className="boton-enviar" type="submit">Enviar</button>
+        {console.log(alumnos)}
       </form>
     </>
   );

@@ -1,0 +1,3 @@
+- Aun falta que me permita Editar un alumno recien agregado en AgregarAlumno.
+- También cuando Edito un alumno, en la consola me imprime que se ha editado en 
+la lista, pero cuado me voy a otra pagina como por ejemplo la de Agregar Alumno, ya no sale en el la lista.

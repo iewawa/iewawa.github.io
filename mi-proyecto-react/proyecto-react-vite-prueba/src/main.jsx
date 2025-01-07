@@ -10,6 +10,7 @@ import Inicio from './Inicio.jsx'
 import Centro from './Centro.jsx'
 import Daw2 from './Daw2.jsx'
 import Grupo from './Grupo.jsx'
+import Editar from './Editar.jsx'
 import AgregarAlumno from './AgregarAlumno.jsx'
 
 import Layoutlet from './layoutlet.jsx'
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/Centro" element={<Centro />} />
         <Route path="/Daw2" element={<Daw2 />} />
         <Route path="/grupo/:letra" element={<Grupo/>}/>
+        <Route path="/editar/:id" element={<Editar/>}/>
         <Route path="/AgregarAlumno" element={<AgregarAlumno />} />
         <Route path="*" element={<Navigate to="/" replace={true} />} />
       </Route>

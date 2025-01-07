@@ -11,11 +11,10 @@ const AgregarAlumno = () => {
         setNumAlumnos(alumnos.length);
     };
 
-    ///////////////////// Esto seria para actualizar un alumno pero faltaría cambiarlo, donde le meto los datos
     const handleUpdate = (id, updatedAlumno) => {
       const index = alumnos.findIndex(alumno => alumno.id == id);
       if (index !== -1) {
-        alumnos[index] = { ...alumnos[index], ...updatedAlumno };
+        alumnos[index] = { ...alumnos[index], nombre: updatedAlumno.nombre, grupo: updatedAlumno.grupo };
         setNumAlumnos(alumnos.length);
       }
     };
@@ -27,6 +26,7 @@ const AgregarAlumno = () => {
             setNumAlumnos(alumnos.length);
         }
     };
+
     return (
         <>
             <FormularioAlumno addAlumno={addAlumno} />
