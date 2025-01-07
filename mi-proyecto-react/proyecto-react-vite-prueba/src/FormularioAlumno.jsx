@@ -22,8 +22,8 @@ function FormularioAlumno({ addAlumno }) {
     }
     if (!nombre) {
       nuevosErrores.nombre = "El nombre es obligatorio.";
-    } else if (nombre.length < 3 || nombre.length > 20) {
-      nuevosErrores.nombre = "El nombre debe tener entre 3 y 20 caracteres.";
+    } else if (nombre.length < 4 || nombre.length > 20) {
+      nuevosErrores.nombre = "El nombre debe tener entre 4 y 20 caracteres.";
     } else if (!/^[a-zA-Z\s]+$/.test(nombre)) {
       nuevosErrores.nombre = "El nombre solo debe contener letras.";
     }
