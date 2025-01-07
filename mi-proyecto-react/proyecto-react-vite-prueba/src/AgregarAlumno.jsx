@@ -11,7 +11,7 @@ const AgregarAlumno = () => {
         setNumAlumnos(alumnos.length);
     };
 
-    ////////////////////////////////////// Esto seria para actualizar un alumno pero faltaría donde le meto los datos
+    ///////////////////// Esto seria para actualizar un alumno pero faltaría cambiarlo, donde le meto los datos
     const handleUpdate = (id, updatedAlumno) => {
       const index = alumnos.findIndex(alumno => alumno.id == id);
       if (index !== -1) {
@@ -19,9 +19,7 @@ const AgregarAlumno = () => {
         setNumAlumnos(alumnos.length);
       }
     };
-    //////////////////////////////////////
 
-    ////////////////////////////////////// Esto borra alumnos
     const handleDelete = (id) => {
         const index = alumnos.findIndex(alumno => alumno.id == id);
         if (index !== -1) {
@@ -29,7 +27,6 @@ const AgregarAlumno = () => {
             setNumAlumnos(alumnos.length);
         }
     };
-    //////////////////////////////////////
     return (
         <>
             <FormularioAlumno addAlumno={addAlumno} />

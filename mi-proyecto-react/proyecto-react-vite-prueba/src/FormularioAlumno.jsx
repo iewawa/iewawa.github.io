@@ -7,15 +7,12 @@ function FormularioAlumno({ addAlumno }) {
   // Datos iniciales del formulario
   const [id, setId] = useState("");
   const [nombre, setNombre] = useState("");
-  const [grupo, setGrupo] = useState("A"); // Selecciona el primer grupo por defecto si existe
-
+  const [grupo, setGrupo] = useState("A"); 
   // Estado para errores de validación
   const [errores, setErrores] = useState({});
 
   const validarFormulario = () => {
     const nuevosErrores = {};
-
-    // Validar ID
     if (!id) {
       nuevosErrores.id = "El ID es obligatorio.";
     } else if (!/^\d+$/.test(id)) {
@@ -23,22 +20,16 @@ function FormularioAlumno({ addAlumno }) {
     } else if (alumnos.some(alumno => alumno.id == id)) {
       nuevosErrores.id = "El ID ya existe.";
     }
-
-    // Validar Nombre
     if (!nombre) {
       nuevosErrores.nombre = "El nombre es obligatorio.";
     } else if (nombre.length < 4 || nombre.length > 20) {
       nuevosErrores.nombre =
         "El nombre debe tener entre 4 y 20 caracteres.";
     }
-
-    // Validar Grupo
     if (!grupo) {
       nuevosErrores.grupo = "Debes seleccionar un grupo.";
     }
-
     setErrores(nuevosErrores);
-
     // Retorna true si no hay errores
     return Object.keys(nuevosErrores).length === 0;
   };
@@ -58,19 +49,6 @@ function FormularioAlumno({ addAlumno }) {
     setGrupo("A");
     setErrores({});
   };
-// //////////////////
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     if (name === "id") {
-//       setId(value);
-//     } else if (name === "nombre") {
-//       setNombre(value);
-//     } else if (name === "grupo") {
-//       setGrupo(value);
-//     }
-//   };
-
-// ////////////////////
 
   return (
     <>
@@ -85,7 +63,6 @@ function FormularioAlumno({ addAlumno }) {
             value={id}
             onChange={(e) => setId(e.target.value)}
             required
-            // disabled={false} // Permitir modificar el ID hasta que se envíe el formulario
           />
           {errores.id && <p className="error">{errores.id}</p>}
         </div>

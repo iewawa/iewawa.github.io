@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
   import './App.css';
 
   export const alumnos = [
@@ -20,6 +20,8 @@ import React from 'react';
               {alumno.nombre} - Grupo {alumno.grupo} - Id: {alumno.id}
               <button onClick={() => onEdit(alumno.id)}>Editar</button> 
               <button onClick={() => onDelete(alumno.id)}>Borrar</button> 
+
+
             </li>
           ))}
         </ul>

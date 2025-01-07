@@ -16,25 +16,20 @@ import Layoutlet from './layoutlet.jsx'
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
-// import App from './App.jsx'
-
 createRoot(document.getElementById('root')).render(
 
   <BrowserRouter>
-  {/* Abajo donde estan los div se pondria llamar un componente entero, o poner un <div></div>*/}
-
     <Routes>
-    <Route path="/" element={<Layoutlet />}>
-      <Route index element={<Inicio />} />
-      <Route path="/Centro" element={<Centro />} />
-      <Route path="/Daw2" element={<Daw2 />} />
-      <Route path="/grupo/:letra" element={<Grupo/>}/>
-      <Route path="/AgregarAlumno" element={<AgregarAlumno />} />
-      <Route path="*" element={<Navigate to="/" replace={true} />} />
-    </Route>
-    <Route path="/Ciclo" element={<Ciclo />} />
-    <Route path="/Curso" element={<Curso />} />
-  </Routes>
-
+      <Route path="/" element={<Layoutlet />}>
+        <Route index element={<Inicio />} />
+        <Route path="/Centro" element={<Centro />} />
+        <Route path="/Daw2" element={<Daw2 />} />
+        <Route path="/grupo/:letra" element={<Grupo/>}/>
+        <Route path="/AgregarAlumno" element={<AgregarAlumno />} />
+        <Route path="*" element={<Navigate to="/" replace={true} />} />
+      </Route>
+      <Route path="/Ciclo" element={<Ciclo />} />
+      <Route path="/Curso" element={<Curso />} />
+    </Routes>
   </BrowserRouter>
 )
