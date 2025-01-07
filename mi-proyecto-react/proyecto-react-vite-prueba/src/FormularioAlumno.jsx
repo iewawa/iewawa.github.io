@@ -30,8 +30,7 @@ function FormularioAlumno({ addAlumno }) {
       nuevosErrores.grupo = "Debes seleccionar un grupo.";
     }
     setErrores(nuevosErrores);
-    // Retorna true si no hay errores
-    return Object.keys(nuevosErrores).length === 0;
+    return Object.keys(nuevosErrores).length === 0;  // Retorna true si no hay errores
   };
 
   const handleSubmit = (e) => {
@@ -62,7 +61,7 @@ function FormularioAlumno({ addAlumno }) {
             id="id"
             value={id}
             onChange={(e) => setId(e.target.value)}
-            required
+            // required // Dejo comentado el required para que se aplique la validacion que he hecho yo por js y salgan mis mensajes
           />
           {errores.id && <p className="error">{errores.id}</p>}
         </div>
@@ -75,7 +74,7 @@ function FormularioAlumno({ addAlumno }) {
             id="nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            required
+            // required
           />
           {errores.nombre && <p className="error">{errores.nombre}</p>}
         </div>
@@ -87,7 +86,7 @@ function FormularioAlumno({ addAlumno }) {
             id="grupo"
             value={grupo}
             onChange={(e) => setGrupo(e.target.value)}
-            required
+            // required
           >
             <option value="A">A</option>
             <option value="B">B</option>
