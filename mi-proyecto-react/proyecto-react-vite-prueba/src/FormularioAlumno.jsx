@@ -1,7 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import "./App.css";
-import { alumnos } from './ListaAlumnos.jsx'
+import { alumnos } from './Alumnos.js'
+
 
 function FormularioAlumno({ addAlumno }) {
   // Datos iniciales del formulario
@@ -54,7 +55,7 @@ function FormularioAlumno({ addAlumno }) {
   return (
     <>
       <h2>Formulario de agregar Alumno con React</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <div>
           <label htmlFor="id">Id: </label>
           <input
@@ -63,7 +64,7 @@ function FormularioAlumno({ addAlumno }) {
             id="id"
             value={id}
             onChange={(e) => setId(e.target.value)}
-            // required
+            required
           />
           {errores.id && <p className="error">{errores.id}</p>}
         </div>
@@ -76,7 +77,7 @@ function FormularioAlumno({ addAlumno }) {
             id="nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            // required
+            required
           />
           {errores.nombre && <p className="error">{errores.nombre}</p>}
         </div>
@@ -88,7 +89,7 @@ function FormularioAlumno({ addAlumno }) {
             id="grupo"
             value={grupo}
             onChange={(e) => setGrupo(e.target.value)}
-            // required
+            required
           >
             <option value="A">A</option>
             <option value="B">B</option>

@@ -1,9 +1,6 @@
-// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-// import Contenedor from './Contenedor.jsx'
 import './index.css'
 import './App.css'
-
 import Curso from './Curso.jsx'
 import Ciclo from './Ciclo.jsx'
 import Inicio from './Inicio.jsx'
@@ -12,9 +9,7 @@ import Daw2 from './Daw2.jsx'
 import Grupo from './Grupo.jsx'
 import Editar from './Editar.jsx'
 import AgregarAlumno from './AgregarAlumno.jsx'
-
 import Layoutlet from './layoutlet.jsx'
-
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(

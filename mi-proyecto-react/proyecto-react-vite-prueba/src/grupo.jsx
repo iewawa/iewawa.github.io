@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 import './App.css'
-import { alumnos } from './ListaAlumnos.jsx'
-
+import { alumnos } from './Alumnos.js'
 
 export default function Grupo() {
   const parametros = useParams()

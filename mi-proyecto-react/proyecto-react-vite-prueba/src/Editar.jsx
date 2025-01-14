@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-
 import "./App.css";
-import { alumnos } from './ListaAlumnos.jsx';
+import { alumnos } from './Alumnos.js'
 
 
 function Editar() {
@@ -65,7 +64,7 @@ function Editar() {
     <>
       <h2>Editar alumno</h2>
       <p>ID del Alumno: {id}</p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <div>
           <label htmlFor="nombre">Nombre: </label>
           <input
@@ -75,6 +74,7 @@ function Editar() {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             placeholder={alumno ? alumno.nombre : ""}
+            required
           />
           {errores.nombre && <p className="error">{errores.nombre}</p>}
         </div>
@@ -86,6 +86,7 @@ function Editar() {
             id="grupo"
             value={grupo}
             onChange={(e) => setGrupo(e.target.value)}
+            required
           >
             <option value="A">A</option>
             <option value="B">B</option>

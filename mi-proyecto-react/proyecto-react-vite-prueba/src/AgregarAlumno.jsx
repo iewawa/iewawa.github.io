@@ -1,6 +1,7 @@
 import FormularioAlumno from './FormularioAlumno.jsx';
 import { useState } from 'react';
-import ListaAlumnos, { alumnos } from './ListaAlumnos.jsx';
+import ListaAlumnos from './ListaAlumnos.jsx';
+import { alumnos } from './Alumnos.js'
 import './App.css';
 
 const AgregarAlumno = () => {
