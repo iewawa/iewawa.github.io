@@ -5,7 +5,7 @@ import { alumnos } from './Alumnos.js'
 
 
 function FormularioAlumno({ addAlumno }) {
-  // Datos iniciales del formulario
+  // Datos iniciales del formulario, variables de estado
   const [id, setId] = useState("");
   const [nombre, setNombre] = useState("");
   const [grupo, setGrupo] = useState("A"); 
@@ -37,7 +37,7 @@ function FormularioAlumno({ addAlumno }) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // para que no se recargue también
 
     if (!validarFormulario()) {
       return;
