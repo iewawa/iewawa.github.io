@@ -1,25 +1,33 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import "./App.css";
-import { alumnos } from './ListaAlumnos.jsx'
+import { alumnos } from './Alumnos.js'
+import { useNavigate } from 'react-router-dom';
 
-function FormularioAlumno({ addAlumno }) {
-  // Datos iniciales del formulario
-  const [id, setId] = useState("");
+
+function Editar() {
+  const { id } = useParams();
+  const alumnoId = parseInt(id, 10);
+   const navigate = useNavigate();
+
+  // Encuentra el alumno a editar
+  const alumno = alumnos.find(alumno => alumno.id === alumnoId);
+
+  // Inicializa los estados con los valores del alumno encontrado
   const [nombre, setNombre] = useState("");
-  const [grupo, setGrupo] = useState("A"); 
-  // Estado para errores de validación
+  const [grupo, setGrupo] = useState("A");
   const [errores, setErrores] = useState({});
+  const [alumnoDato, setNumAlumnos] = useState(alumno.name || alumno.grupo);
+
+  useEffect(() => {
+    if (alumno) {
+      setNombre(alumno.nombre);
+      setGrupo(alumno.grupo);
+    }
+  }, [alumno]);
 
   const validarFormulario = () => {
     const nuevosErrores = {};
-    if (!id) {
-      nuevosErrores.id = "El ID es obligatorio.";
-    } else if (!/^\d+$/.test(id)) {
-      nuevosErrores.id = "El ID debe ser un número.";
-    } else if (alumnos.some(alumno => alumno.id == id)) {
-      nuevosErrores.id = "El ID ya existe.";
-    }
     if (!nombre) {
       nuevosErrores.nombre = "El nombre es obligatorio.";
     } else if (nombre.length < 4 || nombre.length > 20) {
@@ -42,32 +50,24 @@ function FormularioAlumno({ addAlumno }) {
       return;
     }
 
-    const unAlumno = { id: parseInt(id, 10), grupo, nombre };
-    addAlumno(unAlumno);
-
-    setId("");
-    setNombre("");
-    setGrupo("A");
+    // Actualiza los datos del alumno
+    alumno.nombre = nombre;
+    alumno.grupo = grupo;
+    setNombre(nombre);
+    setGrupo(grupo);
     setErrores({});
+
+
+   console.log(alumnos);
+   setNumAlumnos(alumno.name || alumno.grupo);
+   navigate('/GestionarAlumnos'); // Redirige a otra vista
   };
 
   return (
     <>
-      <h2>Formulario de agregar Alumno con React</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="id">Id: </label>
-          <input
-            type="number"
-            name="id"
-            id="id"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-            // required
-          />
-          {errores.id && <p className="error">{errores.id}</p>}
-        </div>
-
+      <h2>Editar alumno</h2>
+      <p>ID del Alumno: {id}</p>
+      <form onSubmit={handleSubmit} noValidate>
         <div>
           <label htmlFor="nombre">Nombre: </label>
           <input
@@ -76,7 +76,8 @@ function FormularioAlumno({ addAlumno }) {
             id="nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            // required
+            placeholder={alumno ? alumno.nombre : ""}
+            required
           />
           {errores.nombre && <p className="error">{errores.nombre}</p>}
         </div>
@@ -88,7 +89,7 @@ function FormularioAlumno({ addAlumno }) {
             id="grupo"
             value={grupo}
             onChange={(e) => setGrupo(e.target.value)}
-            // required
+            required
           >
             <option value="A">A</option>
             <option value="B">B</option>
@@ -96,15 +97,20 @@ function FormularioAlumno({ addAlumno }) {
           {errores.grupo && <p className="error">{errores.grupo}</p>}
         </div>
 
-        <button className="boton-enviar" type="submit">Enviar</button>
-        {console.log(alumnos)}
+        <button className="boton-actualizar" type="submit">Actualizar</button>
       </form>
-    </>
+ 
+    {/* <h3>Todos los alumnos:</h3>
+    <ul>
+    {alumnos.map((alumno, index) => (
+      <li key={index}>
+        {alumno.nombre} - Grupo {alumno.grupo} - Id: {alumno.id}
+        <Link className='link-editar' to={`/editar/${alumno.id}`} >Editar</Link> 
+      </li>
+    ))}
+    </ul> */}
+</>
   );
 }
 
-FormularioAlumno.propTypes = {
-  addAlumno: PropTypes.func.isRequired
-};
-
-export default FormularioAlumno;
+export default Editar;

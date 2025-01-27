@@ -18,10 +18,11 @@
 
                     <label for="nombreUsuario">Nombre de Usuario:</label>
                     <input type="text" id="nombreUsuario" name="NombreUsuario" placeholder="NombreUsuario" minlength="4" maxlength="20" required>
+                    <span class="error-message"></span>
 
                     <label for="contrasena">Contraseña:</label>
-                    <input type="password" id="contrasena" name="Contrasena" placeholder="Solo 8 números" pattern="\d{8}"  onclick="mostrarContrasena()" required>
-                    
+                    <!-- <input type="password" id="contrasena" name="Contrasena" placeholder="Solo 8 números" pattern="\d{8}"  onclick="mostrarContrasena()" required> -->
+                    <input type="password" id="contrasena" name="Contrasena" placeholder="Solo 8 números" pattern="\d{8}" required>
                     <label><input type="checkbox" id="mostrarContrasena">  Mostrar contraseña</label>
                 </fieldset>
 
@@ -29,6 +30,7 @@
                     <legend>Datos Personales</legend>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="Nombre" placeholder="Introduce tu nombre" minlength="4" maxlength="20" required>
+                  
 
                     <label for="apellidos">Apellidos:</label>
                     <input type="text" id="apellidos" name="Apellidos" placeholder="Introduce tus apellidos" minlength="4" maxlength="20" required>

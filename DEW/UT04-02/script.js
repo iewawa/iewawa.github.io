@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault(); // Previene el envío automático
         const inputs = document.querySelectorAll('input, select, textarea');
         // Limpia errores previos
-        //limpiarMensajes();
+        limpiarMensajes();
 
         // Valida cada campo específico
         inputs.forEach(input => {
@@ -141,15 +141,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // -------------------- Funciones --------------------
 
-    /*Alterna la visibilidad de la contraseña*/
-    function mostrarContrasena(event) {
+      /*Alterna la visibilidad de la contraseña*/
+      function toggleVisibilidadContraseña(event) {
         contrasenaInput.type = event.target.checked ? 'text' : 'password';
     }
+    // Mostrar/ocultar contraseña
+    mostrarContrasenaCheckbox.addEventListener('change', toggleVisibilidadContraseña);
 
     function mostrarError(input, mensaje) {
         //Elimina cualquier mensaje previo debajo del input
-        const existingError = input.parentNode.querySelector('.error-message');
-        if (existingError) {
+        const existingError = input.nextElementSibling;
+        if (existingError && existingError.classList.contains('error-message')) {
             existingError.remove();
         }
     
@@ -157,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const error = document.createElement('span');
         error.classList.add('error-message');
         error.textContent = mensaje;
-        input.parentNode.insertBefore(error, input.nextSibling); // Inserta el mensaje justo después del campo
+        input.insertAdjacentElement('afterend', error); // Inserta el mensaje después del input
     }
     
     function limpiarMensajes() {

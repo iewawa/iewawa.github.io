@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./App.css";
 import { alumnos } from './Alumnos.js'
+import { useNavigate } from 'react-router-dom';
 
 
 function Editar() {
   const { id } = useParams();
   const alumnoId = parseInt(id, 10);
+   const navigate = useNavigate();
 
   // Encuentra el alumno a editar
   const alumno = alumnos.find(alumno => alumno.id === alumnoId);
@@ -58,6 +60,7 @@ function Editar() {
 
    console.log(alumnos);
    setNumAlumnos(alumno.name || alumno.grupo);
+   navigate('/GestionarAlumnos'); // Redirige a otra vista
   };
 
   return (
@@ -97,7 +100,7 @@ function Editar() {
         <button className="boton-actualizar" type="submit">Actualizar</button>
       </form>
  
-    <h3>Todos los alumnos:</h3>
+    {/* <h3>Todos los alumnos:</h3>
     <ul>
     {alumnos.map((alumno, index) => (
       <li key={index}>
@@ -105,7 +108,7 @@ function Editar() {
         <Link className='link-editar' to={`/editar/${alumno.id}`} >Editar</Link> 
       </li>
     ))}
-    </ul>
+    </ul> */}
 </>
   );
 }

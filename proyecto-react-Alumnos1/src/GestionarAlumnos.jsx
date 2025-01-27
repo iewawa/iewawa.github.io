@@ -1,15 +1,16 @@
 import FormularioAlumno from './FormularioAlumno.jsx';
 import { useState } from 'react';
-import ListaAlumnos, { alumnos } from './ListaAlumnos.jsx';
+import ListaAlumnos from './ListaAlumnos.jsx';
+import { alumnos } from './Alumnos.js'
 import './App.css';
 
-const AgregarAlumno = () => {
+const GestionarAlumnos = () => {
     const [numAlumnos, setNumAlumnos] = useState(alumnos.length);
 
-    const addAlumno = (alumno) => {
-        alumnos.push(alumno);
-        setNumAlumnos(alumnos.length);
-    };
+    // const addAlumno = (alumno) => {
+    //     alumnos.push(alumno);
+    //     setNumAlumnos(alumnos.length);
+    // };
 
     const handleUpdate = (id, updatedAlumno) => {
       const index = alumnos.findIndex(alumno => alumno.id == id);
@@ -29,10 +30,10 @@ const AgregarAlumno = () => {
 
     return (
         <>
-            <FormularioAlumno addAlumno={addAlumno} />
+            {/* <FormularioAlumno addAlumno={addAlumno} /> */}
             <ListaAlumnos alumnos={alumnos} onEdit={handleUpdate} onDelete={handleDelete} />
         </>
     );
 };
 
-export default AgregarAlumno;
+export default GestionarAlumnos;
