@@ -81,37 +81,37 @@ document.addEventListener('DOMContentLoaded', function () {
             // Valida campos requeridos
             if (input.hasAttribute('required') && !valor) {
                 esValido = false;
-                mostrarError(input, 'Este campo es obligatorio.');
+                mostrarError(input, '- Este campo es obligatorio.');
             }
 
             // Valida la longitud de la contraseña
             if (input.type === 'password' && valor.length !== 8) {
                 esValido = false;
-                mostrarError(input, 'La contraseña debe tener exactamente 8 caracteres numéricos.');
+                mostrarError(input, '- La contraseña debe tener exactamente 8 caracteres numéricos.');
             }
 
             // Valida formato de teléfono
             if (input.id === 'telefono' && valor && !validarTelefono(valor)) {
                 esValido = false;
-                mostrarError(input, 'Formato de teléfono inválido.');
+                mostrarError(input, '- Formato de teléfono inválido.');
             }
 
             // Valida formato del código postal
             if (input.id === 'codigoPostal' && valor && !validarCodigoPostal(valor)) {
                 esValido = false;
-                mostrarError(input, 'Código postal no válido. Debe empezar con "38".');
+                mostrarError(input, '- Código postal no válido. Debe empezar con "38".');
             }
 
             // Valida el campo de cuenta (radio buttons)
             if (input.name === 'CuentaComo' && !document.querySelector('input[name="CuentaComo"]:checked')) {
                 const tipoCuentaDiv = document.querySelector('#cuentaradio');
-                mostrarError(tipoCuentaDiv, 'Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
+                mostrarError(tipoCuentaDiv, '- Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
             }
 
             // Valida formato del DNI o NIE
             if (input.id === 'dniNie' && valor && !validarDniNie(valor)) {
                 esValido = false;
-                mostrarError(input, 'DNI/NIE inválido.');
+                mostrarError(input, '- DNI/NIE inválido.');
             }
         });
 
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
             esValido = false; // Marca formulario como no válido
             e.preventDefault();
             const errorDiv = document.querySelector('#aficiones');
-            mostrarError(errorDiv, 'Por favor, selecciona al menos dos aficiones.');
+            mostrarError(errorDiv, '- Por favor, selecciona al menos dos aficiones.');
         } else {
             // Crea campo oculto para enviar aficiones seleccionadas
             const aficionesSeleccionadas = seleccionados.map(checkbox => checkbox.value).join(',');
