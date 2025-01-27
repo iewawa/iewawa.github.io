@@ -154,9 +154,9 @@ input[type="checkbox"] + label, input[type="radio"] + label {
 .error-message {
     color: red;
     font-size: 12px;
-    margin-top: 5px;
-    font-weight: bold;
+    margin-left: 10px;
 }
+
   
 input[type="submit"] {
     padding: 10px 15px;

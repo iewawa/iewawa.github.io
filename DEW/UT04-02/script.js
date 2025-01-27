@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault(); 
             mostrarMensajesPorDefecto(e.target);
         });
-
+        // Aqui los borra una vez los datos introducidos son validos
         input.addEventListener('input', function () {
             if (input.checkValidity()) {
                 eliminarMensaje(input);
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault(); // Previene el envío automático
         const inputs = document.querySelectorAll('input, select, textarea');
         // Limpia errores previos
-        limpiarMensajes();
+        //limpiarMensajes();
 
         // Valida cada campo específico
         inputs.forEach(input => {
@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Valida el campo de cuenta (radio buttons)
             if (input.name === 'CuentaComo' && !document.querySelector('input[name="CuentaComo"]:checked')) {
-                const tipoCuentaDiv = document.querySelector('#cuentaradio');
-                mostrarError(tipoCuentaDiv, '- Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
+                esValido = false;
+                mostrarError(input, '- Por favor, selecciona un tipo de cuenta (Particular o Empresa).');
             }
 
             // Valida formato del DNI o NIE
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function mostrarError(input, mensaje) {
-        // Elimina cualquier mensaje previo debajo del input
+        //Elimina cualquier mensaje previo debajo del input
         const existingError = input.parentNode.querySelector('.error-message');
         if (existingError) {
             existingError.remove();
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const error = document.createElement('span');
         error.classList.add('error-message');
         error.textContent = mensaje;
-        input.parentNode.appendChild(error); // Coloca al final del contenedor del input
+        input.parentNode.insertBefore(error, input.nextSibling); // Inserta el mensaje justo después del campo
     }
     
     function limpiarMensajes() {
