@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Valida al enviar el formulario
     form.addEventListener('submit', function (e) {
+
         let esValido = true;
         e.preventDefault(); // Previene el envío automático
         const inputs = document.querySelectorAll('input, select, textarea');
@@ -113,6 +114,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 esValido = false;
                 mostrarError(input, '- DNI/NIE inválido.');
             }
+            // Imprime por consola los datos del formulario
+            const formData = new FormData(form);
+            const formEntries = Object.fromEntries(formData.entries());
+            console.log('Datos del formulario:', formEntries);
         });
 
         // Valida al menos dos aficiones seleccionadas

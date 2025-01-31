@@ -1,156 +1,139 @@
 body,
 html {
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    background-color: #e7ede5;
+    background-color: #f7f9f8;
     color: #333;
     margin: 0;
     padding: 40px;
+    line-height: 1.6;
 }
 
 h1 {
     text-align: center;
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 30px;
-    color: #333;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 fieldset {
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #cdd1ce;
+    border-radius: 6px;
     margin-bottom: 25px;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 
 legend {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: bold;
     font-size: 18px;
-    color: #555;
+    color: #2c3e50;
     padding: 0 10px;
-    text-shadow: 0px 0px 15px #d1a6b5;
+    border-bottom: 2px solid #cdd1ce;
 }
 
 label {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    margin-right: 10px;
     display: block;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 16px;
     color: #444;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
-select, textarea {
-    display: block;
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
     width: 100%;
+    padding: 10px;
     margin-bottom: 10px;
-    padding: 8px;
-    /* font-size: 1em; */
-    border: 1px solid #ccc;
+    font-size: 16px;
+    border: 1px solid #cdd1ce;
     border-radius: 6px;
-    box-sizing: border-box;
     background-color: #fafafa;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-#divDniNie{
-    display: flex;
-    margin-top:1em;
-}
-select#dniTipo {
-    width: 5em;
-}
-select#nacimiento {
-    width: 12em;
-}
-
-select:focus, textarea:focus {
-    border: 1px solid #9abb9b;
-    border-radius: 6px;
-}
-
-input:valid, textarea:valid, select:valid {
-    border: 1px solid #9abb9b;
-    border-radius: 6px;
-}
-
-input:invalid, textarea:invalid, select:invalid {
-    border: 1px solid #d1a6b5;
-    border-radius: 6px;
-}
-
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
     outline: none;
-    border: 1px solid #4a4a4a;
-    border-radius: 6px;
+    border: 1px solid #2c3e50;
+    background-color: #f0f4f3;
 }
 
-#aficioncheck {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+input:valid,
+textarea:valid,
+select:valid {
+    border: 1px solid #2c974b;
+    background-color: #eef7ee;
 }
 
-input[type="text"], 
-input[type="tel"], 
-input[type="password"], 
-input[type="number"]{
-    margin-bottom: 10px;
-    padding: 8px;
-    font-size: 1em;
-    border-radius: 6px;
-    box-sizing: border-box;
-    background-color: #fafafa;
-    transition: border-color 0.3s ease;
+input:invalid,
+textarea:invalid,
+select:invalid {
+    border: 1px solid #d35445;
+    background-color: #fdf3f3;
 }
 
-input[type="checkbox"], input[type="radio"] {
-    transform: scale(1.3);
+input[type="checkbox"],
+input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 10px;
 }
 
 input[type="submit"] {
-    display: inline-block;
-    background-color: #9abb9b;
-    color: #fff;
-    border: 1px solid #9abb9b;
+    display: block;
+    width: 100%;
+    background-color: #2c3e50;
+    color: #ffffff;
+    border: none;
     border-radius: 6px;
-    padding: 12px 25px;
+    padding: 12px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
 }
 
 input[type="submit"]:hover {
-    background-color: #9abb9b;
-    transform: scale(1.05);
+    background-color: #34495e;
+    transform: scale(1.02);
 }
 
 input[type="submit"]:active {
     transform: scale(1);
 }
 
+#aficioncheck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.aficion-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
 .contador {
     font-size: 14px;
     color: #777;
-    margin-bottom: 20px;
-}
-
-input[type="checkbox"] + label, input[type="radio"] + label {
-    display: inline-block;
-    margin-bottom: 10px;
-    font-weight: normal;
-    color: #555;
-    font-size: 14px;
+    margin-top: -5px;
+    text-align: right;
 }
 
 .error-message {
     font-size: 12px;
-    color: rgb(197, 63, 88);
-    margin: 5px;
+    color: #d35445;
     font-weight: bold;
+    margin-top: -5px;
 }
-
