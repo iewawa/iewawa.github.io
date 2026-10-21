@@ -17,7 +17,7 @@
   <div class="hero__text">
     <p class="eyebrow">Guía visual · Publicidad display</p>
     <h1>Anatomía <em>del banner</em></h1>
-    <p class="lead">Cada web que visitas está llena de rectángulos que compiten por tu atención. Tienen nombre, medidas exactas y un comportamiento propio. Aquí cada formato se explica a sí mismo.</p>
+    <p class="lead">Cada web que visitas está llena de rectángulos que compiten por tu atención. Tienen nombre, medidas exactas y un comportamiento propio. Aquí cada formato se explica a sí mismo… y, a medida que bajes, esta misma web los usará contigo.</p>
     <ul class="stats">
       <li><b>17</b><span>formatos</span></li>
       <li><b>5</b><span>familias</span></li>
@@ -110,6 +110,15 @@
     </div>
   </article>
 
+  <aside class="slot" data-cat="display" aria-label="Ejemplo real de banner clásico">
+    <p class="slot__cap"><b>En vivo</b> · Banner clásico · 468 × 60 px · haz clic</p>
+    <button class="real-ad real-ad--retro" type="button" style="--w:468;--h:60">
+      <span class="r1">¿Has hecho clic AQUÍ alguna vez?</span>
+      <span class="r2">LO HARÁS.</span>
+      <span class="r3">¡LO HICISTE!</span>
+    </button>
+  </aside>
+
   <!-- 02 MEGABANNER -->
   <article class="fmt" id="megabanner" data-cat="display">
     <div class="fmt__stage">
@@ -140,6 +149,13 @@
     </div>
   </article>
 
+  <aside class="slot" data-cat="display" aria-label="Ejemplo real de megabanner">
+    <p class="slot__cap"><b>En vivo</b> · Megabanner · 728 × 90 px a tamaño real</p>
+    <div class="real-ad" style="--w:728;--h:90">
+      <span style="font-size:4.2cqw">Un megabanner de verdad · 728 × 90</span>
+    </div>
+  </aside>
+
   <!-- 03 BILLBOARD -->
   <article class="fmt" id="billboard" data-cat="display">
     <div class="fmt__stage">
@@ -169,6 +185,13 @@
       </dl>
     </div>
   </article>
+
+  <aside class="slot" data-cat="display" aria-label="Ejemplo real de billboard">
+    <p class="slot__cap"><b>En vivo</b> · Billboard · 970 × 250 px a tamaño real</p>
+    <div class="real-ad" style="--w:970;--h:250">
+      <span><span style="display:block;font-size:9cqw">Billboard</span><small style="font-size:1.7cqw">970 × 250 px · una valla en mitad de la web</small></span>
+    </div>
+  </aside>
 
   <!-- 04 ROBAPÁGINAS -->
   <article class="fmt" id="robapaginas" data-cat="display">
@@ -240,6 +263,13 @@
     </div>
   </article>
 
+  <aside class="slot" data-cat="display" aria-label="Ejemplo real de doble robapáginas">
+    <p class="slot__cap"><b>En vivo</b> · Doble robapáginas · 300 × 600 px a tamaño real</p>
+    <div class="real-ad" style="--w:300;--h:600">
+      <span><span style="display:block;font-size:13cqw">Doble<br>robapáginas</span><small style="font-size:5cqw">300 × 600 px<br>media pantalla de alto</small></span>
+    </div>
+  </aside>
+
   <!-- 06 RASCACIELOS -->
   <article class="fmt" id="rascacielos" data-cat="display">
     <div class="fmt__stage">
@@ -267,8 +297,16 @@
         <div><dt>Dónde</dt><dd>Márgenes laterales</dd></div>
         <div><dt>Intrusión</dt><dd><span class="meter" data-v="2"></span></dd></div>
       </dl>
+      <p class="fact"><b>Pruébalo.</b> En pantallas anchas tienes uno en el margen izquierdo que te acompaña al bajar. En pantallas más estrechas no cabe en el margen, así que lo verás justo debajo de esta ficha. <button class="replay" type="button" data-show-sky>Volver a mostrarlo ↙</button></p>
     </div>
   </article>
+
+  <aside class="slot slot--sky" data-cat="display" aria-label="Ejemplo real de rascacielos">
+    <p class="slot__cap"><b>En vivo</b> · Rascacielos · 160 × 600 px a tamaño real</p>
+    <div class="real-ad" style="--w:160;--h:600">
+      <span style="writing-mode:vertical-rl;font-size:19cqw">Rascacielos · 160 × 600</span>
+    </div>
+  </aside>
 
   <!-- 07 EXPANDIBLE -->
   <article class="fmt" id="expandible" data-cat="rich">
@@ -304,6 +342,16 @@
     </div>
   </article>
 
+  <aside class="slot slot--xp" data-cat="rich" aria-label="Ejemplo real de expandible">
+    <p class="slot__cap"><b>En vivo</b> · Expandible · pasa el ratón por encima</p>
+    <div class="xp-wrap">
+      <button class="real-ad real-ad--xp" type="button" style="--w:728;--h:90" aria-expanded="false">
+        <span class="xp-a" style="font-size:3.6cqw">Pasa el ratón por encima ▾</span>
+        <span class="xp-b"><span style="display:block;font-size:7cqw">Me despliego <u>encima</u></span><small style="font-size:2.2cqw">de 728 × 90 a 728 × 300 · tapo lo que hay debajo</small></span>
+      </button>
+    </div>
+  </aside>
+
   <!-- 08 PUSH-DOWN -->
   <article class="fmt" id="push-down" data-cat="rich">
     <div class="fmt__stage">
@@ -338,6 +386,16 @@
     </div>
   </article>
 
+  <aside class="slot" data-cat="rich" aria-label="Ejemplo real de push-down">
+    <p class="slot__cap"><b>En vivo</b> · Push-down · haz clic y mira lo que pasa abajo</p>
+    <div class="pd-wrap">
+      <button class="real-ad real-ad--pd" type="button" style="--w:970;--h:90" aria-expanded="false">
+        <span class="xp-a" style="font-size:2.6cqw">Clic para ver el tráiler ▾</span>
+        <span class="xp-b"><span style="display:block;font-size:6cqw">Empujo la web <u>hacia abajo</u></span><small style="font-size:1.6cqw">970 × 415 · clic otra vez para recogerme ▴</small></span>
+      </button>
+    </div>
+  </aside>
+
   <!-- 09 LAYER -->
   <article class="fmt" id="layer" data-cat="rich">
     <div class="fmt__stage">
@@ -370,6 +428,7 @@
         <div><dt>Duración</dt><dd>Unos segundos o hasta que lo cierras</dd></div>
         <div><dt>Intrusión</dt><dd><span class="meter" data-v="4"></span></dd></div>
       </dl>
+      <p class="fact"><b>Pruébalo.</b> Al llegar aquí te ha salido uno de verdad flotando sobre la web. <button class="replay" type="button" data-show-layer>Volver a mostrarlo ↗</button></p>
     </div>
   </article>
 
@@ -440,6 +499,7 @@
         <div><dt>Intrusión</dt><dd><span class="meter" data-v="5"></span></dd></div>
       </dl>
       <p class="fact"><b>Dato.</b> Su inventor, Ethan Zuckerman, pidió perdón públicamente en 2014: “Mi intención era buena”.</p>
+      <p class="fact"><b>Pruébalo.</b> Al llegar a esta ficha, la web ha intentado abrirte un pop-up por su cuenta. Si tu navegador lo ha bloqueado, ya sabes por qué casi no se ven. Con un clic sí te deja: <button class="replay" type="button" data-show-popup>Abrir un pop-up de verdad ↗</button></p>
     </div>
   </article>
 
@@ -519,6 +579,21 @@
     </div>
   </article>
 
+  <aside class="slot" data-cat="video" aria-label="Ejemplo real de pre-roll">
+    <p class="slot__cap"><b>En vivo</b> · Pre-roll · dale al play</p>
+    <div class="player-live" data-state="poster">
+      <button class="pl-poster" type="button"><i class="pl-play"></i><span>Reproducir tu vídeo</span></button>
+      <div class="pl-ad">
+        <span class="live-ad__tag">AD</span>
+        <p class="pl-ad__title">Primero, el anuncio</p>
+        <em class="pl-chip">Anuncio · <b>0:15</b></em>
+        <button class="pl-skip" type="button" disabled>Puedes saltarlo en <b>5</b></button>
+        <span class="pl-bar"><i></i></span>
+      </div>
+      <div class="pl-video"><p>Tu vídeo <i>(por fin)</i></p><span class="pl-bar"><i></i></span></div>
+    </div>
+  </aside>
+
   <!-- 14 IN-READ -->
   <article class="fmt" id="in-read" data-cat="video">
     <div class="fmt__stage">
@@ -552,6 +627,20 @@
     </div>
   </article>
 
+  <aside class="slot slot--ir" data-cat="video" aria-label="Ejemplo real de in-read">
+    <p class="slot__cap"><b>En vivo</b> · In-read · <span class="ir-status">el hueco se abre cuando llegas aquí</span></p>
+    <div class="ir-host">
+      <div class="ir-live">
+        <div class="ir-live__video">
+          <span class="live-ad__tag">AD</span>
+          <i class="pl-play"></i>
+          <p>Vídeo in-read · sin sonido</p>
+          <span class="pl-bar"><i></i></span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
   <!-- 15 BANNER MÓVIL -->
   <article class="fmt" id="banner-movil" data-cat="movil">
     <div class="fmt__stage">
@@ -582,6 +671,14 @@
     </div>
   </article>
 
+  <aside class="slot" data-cat="movil" aria-label="Ejemplo real de banner móvil">
+    <p class="slot__cap"><b>En vivo</b> · Banner móvil · 320 × 50 y 320 × 100 px a tamaño real</p>
+    <div class="slot__row">
+      <div class="real-ad" style="--w:320;--h:50"><span style="font-size:5.4cqw">Banner móvil · 320 × 50</span></div>
+      <div class="real-ad" style="--w:320;--h:100"><span><span style="display:block;font-size:8cqw">Banner móvil grande</span><small style="font-size:4.6cqw">320 × 100</small></span></div>
+    </div>
+  </aside>
+
   <!-- 16 ANCLADO / STICKY -->
   <article class="fmt" id="anclado" data-cat="movil">
     <div class="fmt__stage">
@@ -611,6 +708,7 @@
         <div><dt>Dónde</dt><dd>Fijo abajo (a veces arriba)</dd></div>
         <div><dt>Intrusión</dt><dd><span class="meter" data-v="3"></span></dd></div>
       </dl>
+      <p class="fact"><b>Pruébalo.</b> Mira el borde de abajo de tu pantalla: ahí tienes uno pegado. Sigue bajando y verás que no se mueve. <button class="replay" type="button" data-show-anchor>Volver a mostrarlo ↓</button></p>
     </div>
   </article>
 
@@ -679,7 +777,7 @@
     <div><dt>IAB</dt><dd><i>Interactive Advertising Bureau.</i> La asociación que fija los tamaños estándar que ves en esta guía.</dd></div>
     <div><dt>Rich media</dt><dd>Formatos que se mueven, se despliegan o reaccionan a lo que haces: expandibles, layers, intersticiales…</dd></div>
     <div><dt>Retargeting</dt><dd>Cuando un anuncio te “persigue” por otras webs después de haber mirado un producto.</dd></div>
-    <div><dt>Adblocker</dt><dd>Extensión del navegador que oculta los anuncios. Por eso muchas webs te piden que la desactives.</dd></div>
+    <div><dt>Adblocker</dt><dd>Extensión del navegador que oculta los anuncios. Por eso muchas webs te piden que la desactives. <button class="replay" type="button" data-adblock>Probar: activar adblocker</button></dd></div>
   </dl>
   <p class="gloss-reveal" aria-live="polite"><b>¿Te has dado cuenta?</b> “Banner Pro” no es una definición: es <a href="#nativa">publicidad nativa</a>. Tenía el mismo aspecto que todo lo demás y solo la delataba una etiqueta pequeñita: “Patrocinado”.</p>
 </section>
@@ -708,6 +806,31 @@
   </div>
   <span class="live-inter__bar"><i></i></span>
 </div>
+
+<!-- Layer "de verdad": flota sobre la web -->
+<div class="live-layer" id="live-layer" role="dialog" aria-label="Ejemplo de layer" hidden>
+  <span class="live-ad__tag">AD</span>
+  <button class="live-ad__x" type="button" aria-label="Cerrar anuncio">×</button>
+  <p class="live-layer__title">Soy un layer</p>
+  <p class="live-layer__msg">Floto por encima de la web y no formo parte de ella. Para seguir leyendo, ciérrame… o espera <b>15</b> segundos.</p>
+</div>
+
+<!-- Rascacielos "de verdad": fijo en el margen izquierdo (solo en pantallas anchas) -->
+<aside class="live-sky" id="live-sky" aria-label="Ejemplo de rascacielos" hidden>
+  <span class="live-ad__tag">AD</span>
+  <button class="live-ad__x" type="button" aria-label="Cerrar anuncio">×</button>
+  <p>Rascacielos · 160 × 600 · te acompaño por el margen</p>
+</aside>
+
+<!-- Anclado "de verdad": pegado al borde inferior -->
+<aside class="live-anchor" id="live-anchor" aria-label="Ejemplo de anuncio anclado" hidden>
+  <span class="live-ad__tag">AD</span>
+  <p><b>Anclado</b> · me quedo pegado abajo mientras bajas</p>
+  <button class="live-ad__x" type="button" aria-label="Cerrar anuncio">×</button>
+</aside>
+
+<!-- Avisos -->
+<div class="toast" id="toast" role="status" hidden></div>
 
 <!-- Skin "de verdad": los laterales de la web se visten con la marca -->
 <div class="live-skin" aria-hidden="true">

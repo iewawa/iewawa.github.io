@@ -1082,6 +1082,369 @@ em { font-style: italic; }
 }
 .live-ad__x:hover { background: var(--ink); color: #fff; }
 
+/* =========================================================
+   ANUNCIOS EN VIVO: huecos reales entre fichas, a tamaño real
+   ========================================================= */
+
+.slot {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 4px 0 8px;
+}
+.slot[hidden] { display: none; }
+.slot__cap {
+  margin: 0;
+  font: 500 11px/1.4 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--muted);
+}
+.slot__cap b { font-weight: 600; color: var(--ad); }
+.slot__cap b::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: 0 6px 1px 0;
+  border-radius: 50%;
+  background: var(--ad);
+  animation: livePulse 1.6s ease-in-out infinite;
+}
+@keyframes livePulse { 50% { opacity: .25; } }
+.slot__row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px; width: 100%; }
+
+/* Un anuncio real: mide exactamente --w × --h píxeles (o lo que quepa) */
+.real-ad {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(calc(var(--w) * 1px), 100%);
+  aspect-ratio: var(--w) / var(--h);
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 4px;
+  background-color: var(--ad);
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .08) 0 10px, transparent 0 20px);
+  color: #fff;
+  font: 400 16px/1.1 var(--serif);
+  text-align: center;
+  container-type: inline-size;
+  box-shadow: 0 18px 40px -22px rgba(120, 40, 0, .5);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.slot.is-seen .real-ad { opacity: 1; transform: none; }
+.real-ad > * { grid-area: 1 / 1; position: relative; z-index: 1; }
+.real-ad small { display: block; margin-top: .5em; font-family: var(--mono); font-weight: 500; opacity: .85; }
+.real-ad::before {
+  content: "AD";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .2);
+  font: 600 9px/1 var(--mono);
+}
+.real-ad::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, .3) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: shine 8s ease-in-out infinite;
+  pointer-events: none;
+}
+button.real-ad { cursor: pointer; }
+
+/* 01 · el banner de 1994 */
+.real-ad--retro { font: 700 4.2cqw/1 var(--sans); }
+.real-ad--retro span { font-size: 4.2cqw; }
+.real-ad--retro .r1 { animation: blinkA 4s steps(1) infinite; }
+.real-ad--retro .r2 { font-size: 5.6cqw; letter-spacing: .1em; animation: blinkB 4s steps(1) infinite; }
+.real-ad--retro .r3 { font-size: 5.6cqw; letter-spacing: .06em; opacity: 0; }
+.real-ad--retro.is-clicked .r1,
+.real-ad--retro.is-clicked .r2 { animation: none; opacity: 0; }
+.real-ad--retro.is-clicked .r3 { opacity: 1; }
+
+/* 06 · en línea solo cuando no cabe en el margen */
+@media (min-width: 1600px) { .slot--sky { display: none; } }
+
+/* 07 · expandible: se despliega por ENCIMA de lo que hay debajo */
+.slot--xp { position: relative; z-index: 6; }
+.xp-wrap { position: relative; width: min(728px, 100%); aspect-ratio: 728 / 90; container-type: inline-size; }
+.real-ad--xp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(90 / 728 * 100cqw);
+  aspect-ratio: auto;
+  transition: opacity .6s ease, transform .6s ease, height .5s cubic-bezier(.6, 0, .2, 1), box-shadow .5s;
+}
+.xp-wrap:hover .real-ad--xp,
+.real-ad--xp.is-open {
+  height: calc(300 / 728 * 100cqw);
+  box-shadow: 0 30px 60px -10px rgba(60, 25, 0, .45);
+}
+
+/* 08 · push-down: crece DENTRO de la página y empuja lo de abajo */
+.pd-wrap { width: min(970px, 100%); container-type: inline-size; }
+.real-ad--pd {
+  width: 100%;
+  height: calc(90 / 970 * 100cqw);
+  aspect-ratio: auto;
+  transition: opacity .6s ease, transform .6s ease, height .6s cubic-bezier(.6, 0, .2, 1);
+}
+.real-ad--pd.is-open { height: calc(415 / 970 * 100cqw); }
+
+.real-ad--xp .xp-b, .real-ad--pd .xp-b { opacity: 0; transition: opacity .3s; }
+.real-ad--xp .xp-a, .real-ad--pd .xp-a { transition: opacity .3s; }
+.xp-wrap:hover .xp-a, .real-ad--xp.is-open .xp-a, .real-ad--pd.is-open .xp-a { opacity: 0; }
+.xp-wrap:hover .xp-b, .real-ad--xp.is-open .xp-b, .real-ad--pd.is-open .xp-b { opacity: 1; transition-delay: .2s; }
+
+/* 13 · reproductor con pre-roll */
+.player-live {
+  position: relative;
+  width: min(720px, 100%);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #1d1a14;
+  color: #fff;
+  container-type: inline-size;
+  box-shadow: 0 24px 50px -24px rgba(40, 20, 0, .6);
+}
+.pl-poster, .pl-ad, .pl-video {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2.4cqw;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s, visibility .4s;
+}
+.player-live[data-state="poster"] .pl-poster,
+.player-live[data-state="ad"] .pl-ad,
+.player-live[data-state="video"] .pl-video { opacity: 1; visibility: visible; }
+
+.pl-poster {
+  border: 0;
+  background: linear-gradient(135deg, #3a352b, #1d1a14);
+  color: #fff;
+  font: 500 clamp(14px, 2.6cqw, 20px)/1 var(--sans);
+  cursor: pointer;
+}
+.pl-play {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 3.4cqw 0 3.4cqw 5.6cqw;
+  border-color: transparent transparent transparent #fff;
+  transition: transform .2s;
+}
+.pl-poster:hover .pl-play { transform: scale(1.15); }
+
+.pl-ad {
+  background-color: var(--ad);
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .08) 0 12px, transparent 0 24px);
+}
+.pl-ad .live-ad__tag { top: 10px; left: 10px; }
+.pl-ad__title { margin: 0; font: 400 7cqw/1 var(--serif); }
+.pl-chip {
+  position: absolute;
+  left: 14px;
+  bottom: 22px;
+  padding: 5px 9px;
+  border-radius: 4px;
+  background: #ffd23f;
+  color: var(--ink);
+  font: 600 clamp(11px, 1.8cqw, 14px)/1 var(--sans);
+  font-style: normal;
+}
+.pl-skip {
+  position: absolute;
+  right: 0;
+  bottom: 46px;
+  padding: 11px 18px;
+  border: 0;
+  background: rgba(0, 0, 0, .72);
+  color: #fff;
+  font: 500 clamp(12px, 2cqw, 15px)/1 var(--sans);
+  cursor: pointer;
+}
+.pl-skip:disabled { cursor: default; opacity: .8; }
+.pl-skip:not(:disabled):hover { background: #000; }
+
+.pl-video { background: linear-gradient(120deg, #2b3a4a, #3b2b4a, #2b4a3e); background-size: 300% 300%; }
+.player-live[data-state="video"] .pl-video { animation: plHue 8s ease-in-out infinite alternate; }
+@keyframes plHue { to { background-position: 100% 100%; } }
+.pl-video p { margin: 0; font: 400 6cqw/1 var(--serif); }
+.pl-video p i { opacity: .7; }
+
+.pl-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: rgba(255, 255, 255, .2); }
+.pl-bar i { display: block; width: 0; height: 100%; background: #ffd23f; }
+.pl-video .pl-bar i { background: #fff; }
+.player-live[data-state="ad"] .pl-ad .pl-bar i { animation: barGrow 15s linear forwards; }
+.player-live[data-state="video"] .pl-video .pl-bar i { animation: barGrow 12s linear forwards; }
+@keyframes barGrow { to { width: 100%; } }
+
+/* 14 · in-read: el hueco se abre al llegar */
+.ir-host { width: min(720px, 100%); container-type: inline-size; }
+.ir-live {
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: height .9s cubic-bezier(.6, 0, .2, 1);
+}
+.ir-live.is-open { height: calc(100cqw * 9 / 16); }
+.ir-live__video {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2.4cqw;
+  height: calc(100cqw * 9 / 16);
+  background-color: var(--ad);
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .08) 0 12px, transparent 0 24px);
+  color: #fff;
+}
+.ir-live__video .live-ad__tag { top: 10px; left: 10px; }
+.ir-live__video p { margin: 0; font: 400 5cqw/1 var(--serif); }
+.ir-live.is-playing .pl-bar i { animation: barGrow 10s linear forwards; }
+
+/* ---------- Layer "de verdad" ---------- */
+
+.live-layer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  width: min(440px, calc(100vw - 32px));
+  padding: 44px 36px 36px;
+  border-radius: 16px;
+  background-color: var(--ad);
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .08) 0 12px, transparent 0 24px);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 40px 80px -20px rgba(40, 15, 0, .55);
+  transform: translate(-50%, -50%);
+  translate: 110vw 0;
+  rotate: 10deg;
+  opacity: 0;
+  transition: translate .9s cubic-bezier(.2, .9, .3, 1.1), rotate .9s ease, opacity .5s;
+}
+.live-layer[hidden] { display: none; }
+.live-layer.is-in { translate: 0 0; rotate: 0deg; opacity: 1; animation: layerDrift 7s ease-in-out .9s infinite; }
+@keyframes layerDrift {
+  0%, 100% { transform: translate(-50%, -50%); }
+  33%      { transform: translate(calc(-50% + 34px), calc(-50% - 18px)) rotate(1.5deg); }
+  66%      { transform: translate(calc(-50% - 26px), calc(-50% + 14px)) rotate(-1deg); }
+}
+.live-layer__title { margin: 0; font: 400 clamp(44px, 7vw, 64px)/1 var(--serif); }
+.live-layer__msg { margin: 14px 0 0; font-size: 16px; opacity: .92; }
+
+/* ---------- Rascacielos "de verdad" (margen izquierdo) ---------- */
+
+.live-sky {
+  position: fixed;
+  top: max(84px, calc(50vh - 300px));
+  left: max(12px, calc((100vw - 1240px) / 2 - 176px));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 160px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--ad);
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .08) 0 10px, transparent 0 20px);
+  color: #fff;
+  box-shadow: 0 24px 50px -16px rgba(60, 25, 0, .45);
+  translate: -240px 0;
+  transition: translate .7s cubic-bezier(.2, .9, .3, 1.1);
+}
+.live-sky[hidden] { display: none; }
+.live-sky.is-in { translate: 0 0; }
+.live-sky p { margin: 0; writing-mode: vertical-rl; font: 400 30px/1 var(--serif); white-space: nowrap; }
+
+/* ---------- Anclado "de verdad" (borde inferior) ---------- */
+
+.live-anchor {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  width: min(728px, 100vw);
+  height: 90px;
+  padding: 0 48px;
+  overflow: hidden;
+  border-radius: 6px 6px 0 0;
+  background-color: var(--ad);
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .08) 0 10px, transparent 0 20px);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 -16px 40px -16px rgba(60, 25, 0, .45);
+  transform: translateX(-50%);
+  translate: 0 110%;
+  transition: translate .6s cubic-bezier(.2, .9, .3, 1.1);
+}
+.live-anchor[hidden] { display: none; }
+.live-anchor.is-in { translate: 0 0; }
+.live-anchor p { margin: 0; font: 400 26px/1.1 var(--serif); }
+.live-anchor .live-ad__x { top: 50%; transform: translateY(-50%); right: 12px; }
+body.anchor-on .live-ad { bottom: 114px; }
+
+@media (max-width: 760px) {
+  .live-anchor { width: 320px; height: 50px; border-radius: 4px 4px 0 0; }
+  .live-anchor p { font-size: 15px; }
+  .live-anchor .live-ad__x { width: 22px; height: 22px; font-size: 16px; right: 8px; }
+  body.anchor-on .live-ad { bottom: 66px; }
+}
+
+/* ---------- Avisos ---------- */
+
+.toast {
+  position: fixed;
+  top: 76px;
+  left: 50%;
+  z-index: 70;
+  max-width: min(520px, calc(100vw - 32px));
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14.5px;
+  line-height: 1.45;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, .4);
+  transform: translateX(-50%);
+  translate: 0 -12px;
+  opacity: 0;
+  transition: opacity .35s, translate .35s;
+}
+.toast[hidden] { display: none; }
+.toast.is-in { translate: 0 0; opacity: 1; }
+
+/* ---------- Modo adblocker: fuera todos los anuncios ---------- */
+
+body.adblock .slot,
+body.adblock .live-ad,
+body.adblock .live-inter,
+body.adblock .live-layer,
+body.adblock .live-sky,
+body.adblock .live-anchor,
+body.adblock .live-skin { display: none !important; }
+
 /* ---------- Intersticial "de verdad" (pantalla completa) ---------- */
 
 .live-inter {
