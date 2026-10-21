@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anatomía del banner</title>
+  <meta name="description" content="Guía visual de los formatos de publicidad que te encuentras en cualquier web: robapáginas, rascacielos, intersticiales, layers y más.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero__text">
+    <p class="eyebrow">Guía visual · Publicidad display</p>
+    <h1>Anatomía <em>del banner</em></h1>
+    <p class="lead">Cada web que visitas está llena de rectángulos que compiten por tu atención. Tienen nombre, medidas exactas y un comportamiento propio. Aquí cada formato se explica a sí mismo.</p>
+    <ul class="stats">
+      <li><b>17</b><span>formatos</span></li>
+      <li><b>5</b><span>familias</span></li>
+      <li><b>px</b><span>medidas reales a escala</span></li>
+    </ul>
+  </div>
+
+  <figure class="hero__fig">
+    <div class="browser">
+      <div class="browser__bar"><i></i><i></i><i></i><span>www.unaweb.cualquiera</span></div>
+      <div class="page" aria-hidden="true">
+        <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+        <div class="ad sky-hero" style="--w:160;--h:600"><span>160×600</span></div>
+        <div class="wrap">
+          <div class="ad c" style="--w:728;--h:90;--mb:24"><span>728 × 90</span></div>
+          <div class="cols">
+            <div>
+              <b class="ttl"></b><b class="img"></b>
+              <div class="lines" data-n="3"></div>
+              <div class="feed2">
+                <div class="nc"><b class="img" style="--h:120"></b><b class="ln"></b></div>
+                <div class="nc sp-static"><b class="img" style="--h:120"></b><b class="ln"></b><em>Patrocinado</em></div>
+              </div>
+            </div>
+            <div>
+              <div class="ad" style="--w:300;--h:250;--mb:20"><span>300 × 250</span></div>
+              <b class="box" style="--h:200"></b>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pins">
+        <a class="pin" href="#rascacielos" style="left:12.9%;top:11.3%" data-label="Rascacielos">06</a>
+        <a class="pin" href="#megabanner" style="left:78.4%;top:11.3%" data-label="Megabanner">02</a>
+        <a class="pin" href="#robapaginas" style="left:86.7%;top:25.5%" data-label="Robapáginas">04</a>
+        <a class="pin" href="#nativa" style="left:60.2%;top:70%" data-label="Publicidad nativa">17</a>
+      </div>
+    </div>
+    <figcaption>Una página corriente. Los bloques naranjas son publicidad: pulsa los números.</figcaption>
+  </figure>
+</header>
+
+<!-- ============ FILTROS ============ -->
+<nav class="filters" aria-label="Filtrar formatos">
+  <button class="chip is-active" data-filter="all">Todos <small></small></button>
+  <button class="chip" data-filter="display">Display <small></small></button>
+  <button class="chip" data-filter="rich">Rich media <small></small></button>
+  <button class="chip" data-filter="video">Vídeo <small></small></button>
+  <button class="chip" data-filter="movil">Móvil <small></small></button>
+  <button class="chip" data-filter="nativo">Nativo <small></small></button>
+</nav>
+
+<main class="formats">
+
+  <!-- 01 BANNER CLÁSICO -->
+  <article class="fmt" id="clasico" data-cat="display">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>hotwired.com · 1994</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="ad c pop retro" style="--w:468;--h:60;--mb:30;--fs:22">
+              <span class="r1">¿Has hecho clic AQUÍ alguna vez?</span>
+              <span class="r2">LO HARÁS.</span>
+            </div>
+            <div class="cols">
+              <div><b class="ttl"></b><b class="img" style="--h:200"></b><div class="lines" data-n="9"></div></div>
+              <div class="btns">
+                <div class="ad pop" style="--w:125;--h:125;--fs:18"><span>125²</span></div>
+                <div class="ad pop" style="--w:125;--h:125;--fs:18"><span>125²</span></div>
+                <b class="box" style="--h:300"></b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">01 <span>Display</span></p>
+      <h2>Banner clásico <i>y botón</i></h2>
+      <p class="fmt__aka">Full banner · Button</p>
+      <p class="fmt__desc">El abuelo de todos. Una tira horizontal en la parte de arriba y pequeños cuadrados en los laterales. Hoy casi no se usa, pero de aquí viene la palabra <em>banner</em>: “pancarta”.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>468 × 60 px · botón 125 × 125 px</dd></div>
+        <div><dt>Dónde</dt><dd>Cabecera y columna lateral</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="1"></span></dd></div>
+      </dl>
+      <p class="fact"><b>Dato.</b> El primer banner de la historia salió el 27 de octubre de 1994 en HotWired. Decía “¿Alguna vez has hecho clic justo AQUÍ? LO HARÁS.” Y casi la mitad de quienes lo vieron hicieron clic.</p>
+    </div>
+  </article>
+
+  <!-- 02 MEGABANNER -->
+  <article class="fmt" id="megabanner" data-cat="display">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>eldiario.de.hoy</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="ad c pop" style="--w:728;--h:90;--mb:28"><span>728 × 90</span></div>
+            <div class="cols">
+              <div><b class="ttl"></b><b class="img"></b><div class="lines" data-n="8"></div></div>
+              <div><b class="box" style="--h:250"></b><b class="box" style="--h:200"></b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">02 <span>Display</span></p>
+      <h2>Megabanner</h2>
+      <p class="fmt__aka">Leaderboard</p>
+      <p class="fmt__desc">La tira horizontal que corona la página, justo debajo del menú. Es lo primero que ves al entrar, antes incluso que el titular.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>728 × 90 px</dd></div>
+        <div><dt>Dónde</dt><dd>Cabecera, encima del contenido</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="1"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 03 BILLBOARD -->
+  <article class="fmt" id="billboard" data-cat="display">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>revista.moda</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="ad pop bb" style="--w:970;--h:250;--mb:28;--fs:30"><span>970 × 250</span></div>
+            <div class="cols">
+              <div><b class="ttl"></b><b class="img"></b><div class="lines" data-n="6"></div></div>
+              <div><b class="box" style="--h:250"></b><b class="box" style="--h:200"></b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">03 <span>Display</span></p>
+      <h2>Billboard</h2>
+      <p class="fmt__aka">Valla · Megabanner grande</p>
+      <p class="fmt__desc">El hermano mayor del megabanner: ocupa todo el ancho de la web y casi un tercio de la primera pantalla. Es una valla publicitaria en mitad de la carretera.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>970 × 250 px</dd></div>
+        <div><dt>Dónde</dt><dd>Arriba del todo, a todo lo ancho</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="2"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 04 ROBAPÁGINAS -->
+  <article class="fmt" id="robapaginas" data-cat="display">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>noticias.local/articulo</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="cols">
+              <div>
+                <b class="ttl"></b><b class="img" style="--h:150"></b>
+                <div class="ad rob" style="--w:300;--h:250"><span>300 × 250</span></div>
+                <div class="lines" data-n="18"></div>
+              </div>
+              <div><b class="box" style="--h:250"></b><b class="box" style="--h:300"></b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">04 <span>Display</span></p>
+      <h2>Robapáginas</h2>
+      <p class="fmt__aka">Medium Rectangle · MPU</p>
+      <p class="fmt__desc">Un rectángulo que se mete en mitad del texto y le “roba” espacio: los párrafos se estrechan para dejarle sitio. También vive en la columna lateral, y en muchas webs se queda <b>pegado</b> y te sigue mientras bajas. Es el formato más vendido de internet.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>300 × 250 px · grande 336 × 280 px</dd></div>
+        <div><dt>Dónde</dt><dd>Dentro del artículo o en el lateral</dd></div>
+        <div><dt>Variante</dt><dd>Sticky: te acompaña hasta que lo cierras</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="2"></span></dd></div>
+      </dl>
+      <p class="fact"><b>Pruébalo.</b> Mira la esquina de tu pantalla: ahí tienes uno de verdad, a tamaño real. Sigue bajando y verás que no te suelta. <button class="replay" type="button" data-show-live>Volver a mostrarlo ↘</button></p>
+    </div>
+  </article>
+
+  <!-- 05 DOBLE ROBAPÁGINAS -->
+  <article class="fmt" id="doble-robapaginas" data-cat="display">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>blog.de.viajes</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="cols">
+              <div><b class="ttl"></b><b class="img" style="--h:260"></b><div class="lines" data-n="14"></div></div>
+              <div>
+                <div class="ad dbl" style="--w:300;--h:600;--fs:26">
+                  <span class="half">300 × 250</span>
+                  <span>300 × 600</span>
+                  <span class="half b">300 × 250</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">05 <span>Display</span></p>
+      <h2>Doble robapáginas</h2>
+      <p class="fmt__aka">Half Page</p>
+      <p class="fmt__desc">Dos robapáginas apilados que se funden en una sola pieza vertical. Ocupa media pantalla de alto en la columna lateral y no hay forma de no verlo.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>300 × 600 px</dd></div>
+        <div><dt>Dónde</dt><dd>Columna lateral</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="2"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 06 RASCACIELOS -->
+  <article class="fmt" id="rascacielos" data-cat="display">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>foro.tecnologia</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="scroll scroll--sky">
+            <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+            <div class="wrap">
+              <b class="ttl"></b><b class="img" style="--h:260"></b>
+              <div class="lines" data-n="30"></div>
+            </div>
+          </div>
+          <div class="ad sky" style="--w:160;--h:600;--fs:20"><span>160<br>×<br>600</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">06 <span>Display</span></p>
+      <h2>Rascacielos</h2>
+      <p class="fmt__aka">Skyscraper · Wide skyscraper</p>
+      <p class="fmt__desc">Estrecho y altísimo, como un edificio. Vive en los márgenes de la web y muchas veces se queda fijo mientras haces scroll, acompañándote por toda la página.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>120 × 600 px · ancho 160 × 600 px</dd></div>
+        <div><dt>Dónde</dt><dd>Márgenes laterales</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="2"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 07 EXPANDIBLE -->
+  <article class="fmt" id="expandible" data-cat="rich">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>videojuegos.net</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap rel">
+            <div class="ad xp" style="--w:728;--h:90">
+              <span class="la">728 × 90</span>
+              <span class="lb">Se despliega <b>encima</b> del contenido<br><small>728 × 340</small></span>
+            </div>
+            <div class="cols" style="margin-top:calc(118 * var(--u))">
+              <div><b class="ttl"></b><b class="img"></b><div class="lines" data-n="8"></div></div>
+              <div><b class="box" style="--h:250"></b><b class="box" style="--h:200"></b></div>
+            </div>
+          </div>
+          <svg class="cursor cur-xp" viewBox="0 0 24 24"><path d="M5 3v16l4.5-4.2 3.1 6.7 2.6-1.2-3-6.6 6.3-.3z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">07 <span>Rich media</span></p>
+      <h2>Expandible</h2>
+      <p class="fmt__aka">Expandable banner</p>
+      <p class="fmt__desc">Parece un banner normal, pero al pasar el ratón por encima se despliega y tapa parte de la página. Cuando sales, vuelve a encogerse.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>De 728 × 90 a 728 × 300 px o más</dd></div>
+        <div><dt>Se activa</dt><dd>Al pasar el ratón por encima</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="3"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 08 PUSH-DOWN -->
+  <article class="fmt" id="push-down" data-cat="rich">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>cine.estrenos</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="ad pd" style="--w:940;--h:90">
+              <span class="la">Clic para ver el tráiler ▾</span>
+              <span class="lb">Empuja la página <b>hacia abajo</b><br><small>970 × 90 → 970 × 415</small></span>
+            </div>
+            <div class="cols">
+              <div><b class="ttl"></b><b class="img"></b><div class="lines" data-n="8"></div></div>
+              <div><b class="box" style="--h:250"></b><b class="box" style="--h:200"></b></div>
+            </div>
+          </div>
+          <svg class="cursor cur-pd" viewBox="0 0 24 24"><path d="M5 3v16l4.5-4.2 3.1 6.7 2.6-1.2-3-6.6 6.3-.3z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">08 <span>Rich media</span></p>
+      <h2>Push-down</h2>
+      <p class="fmt__aka">Desplegable · Pushdown</p>
+      <p class="fmt__desc">Primo del expandible, pero más educado: al abrirse no tapa nada, empuja todo el contenido hacia abajo. Muy usado para estrenos de cine o lanzamientos.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>970 × 90 → 970 × 415 px</dd></div>
+        <div><dt>Se activa</dt><dd>Con un clic o al cargar la página</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="3"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 09 LAYER -->
+  <article class="fmt" id="layer" data-cat="rich">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>recetas.faciles</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="cols">
+              <div><b class="ttl"></b><b class="img"></b><div class="lines" data-n="8"></div></div>
+              <div><b class="box" style="--h:250"></b><b class="box" style="--h:200"></b></div>
+            </div>
+          </div>
+          <div class="veil veil--layer"></div>
+          <div class="ad layer" style="--w:480;--h:330;--fs:28">
+            <span>Flota sobre la web<br><small>y hay que cerrarlo</small></span>
+            <i class="x">×</i>
+          </div>
+          <svg class="cursor cur-layer" viewBox="0 0 24 24"><path d="M5 3v16l4.5-4.2 3.1 6.7 2.6-1.2-3-6.6 6.3-.3z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">09 <span>Rich media</span></p>
+      <h2>Layer</h2>
+      <p class="fmt__aka">Flotante · Overlay</p>
+      <p class="fmt__desc">Una capa que aparece flotando por encima de la web, a veces moviéndose por la pantalla. No forma parte de la página: está encima, y para seguir leyendo tienes que buscar la ×.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>Libre, suele ser grande</dd></div>
+        <div><dt>Duración</dt><dd>Unos segundos o hasta que lo cierras</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="4"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 10 INTERSTICIAL -->
+  <article class="fmt" id="intersticial" data-cat="rich">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>deportes.hoy</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="cols">
+              <div><b class="ttl"></b><b class="img"></b><div class="lines" data-n="8"></div></div>
+              <div><b class="box" style="--h:250"></b><b class="box" style="--h:200"></b></div>
+            </div>
+          </div>
+          <div class="ad inter" style="--fs:40">
+            <span class="skip">Ir a la web ›</span>
+            <span>Pantalla completa<br><small>antes de dejarte entrar</small></span>
+            <span class="bar"><i></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">10 <span>Rich media</span></p>
+      <h2>Intersticial</h2>
+      <p class="fmt__aka">Cortinilla · Interstitial</p>
+      <p class="fmt__desc">Un anuncio a pantalla completa que aparece <em>entre</em> una página y otra, como una cortina. Ocupa todo durante unos segundos y luego te deja pasar a la web.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>Toda la pantalla · en móvil 320 × 480 px</dd></div>
+        <div><dt>Duración</dt><dd>Unos 5–10 segundos</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="5"></span></dd></div>
+      </dl>
+      <p class="fact"><b>Ojo.</b> Los que tienen cuenta atrás están en la lista negra de la <i>Coalition for Better Ads</i>, y Chrome puede bloquear los anuncios de las webs que abusan de ellos. <button class="replay" type="button" data-show-inter>Sufrirlo otra vez ↗</button></p>
+    </div>
+  </article>
+
+  <!-- 11 POP-UP / POP-UNDER -->
+  <article class="fmt" id="pop-up" data-cat="rich">
+    <div class="fmt__stage" style="--dur:10s">
+      <div class="desk" aria-hidden="true">
+        <div class="win win--under">
+          <div class="win__bar"><i></i><i></i><i></i></div>
+          <div class="ad win__ad" style="--fs:34"><span>POP-UNDER<br><small>te esperaba detrás</small></span></div>
+        </div>
+        <div class="win win--main">
+          <div class="win__bar"><i></i><i></i><i></i><b class="x">×</b></div>
+          <div class="win__page">
+            <b class="ttl"></b><b class="img" style="--h:200"></b><div class="lines" data-n="10"></div>
+          </div>
+        </div>
+        <div class="win win--pop">
+          <div class="win__bar"><i></i><i></i><i></i><b class="x">×</b></div>
+          <div class="ad win__ad" style="--fs:34"><span>POP-UP<br><small>¡ventana nueva!</small></span></div>
+        </div>
+        <svg class="cursor cur-pop" viewBox="0 0 24 24"><path d="M5 3v16l4.5-4.2 3.1 6.7 2.6-1.2-3-6.6 6.3-.3z"/></svg>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">11 <span>Rich media</span></p>
+      <h2>Pop-up <i>y <span class="nw">pop-under</span></i></h2>
+      <p class="fmt__aka">Ventana emergente</p>
+      <p class="fmt__desc">Ni siquiera está dentro de la web: abre una ventana nueva del navegador. El <b>pop-up</b> salta delante de ti; el <b>pop-under</b> se esconde detrás y lo descubres al cerrar la página.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>Una ventana entera</dd></div>
+        <div><dt>Estado</dt><dd>Bloqueado por defecto en los navegadores</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="5"></span></dd></div>
+      </dl>
+      <p class="fact"><b>Dato.</b> Su inventor, Ethan Zuckerman, pidió perdón públicamente en 2014: “Mi intención era buena”.</p>
+    </div>
+  </article>
+
+  <!-- 12 SKIN -->
+  <article class="fmt" id="skin" data-cat="rich">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>futbol.directo</span></div>
+        <div class="page page--skin" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="ad skin skin--l"><span>TU MARCA</span></div>
+          <div class="ad skin skin--r"><span>TU MARCA</span></div>
+          <div class="wrap wrap--paper">
+            <div class="ad skin-band" style="--w:940;--h:110;--mb:26"><span>La web entera se viste con la marca</span></div>
+            <div class="cols">
+              <div><b class="ttl"></b><b class="img"></b><div class="lines" data-n="8"></div></div>
+              <div><b class="box" style="--h:250"></b><b class="box" style="--h:200"></b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">12 <span>Rich media</span></p>
+      <h2>Skin</h2>
+      <p class="fmt__aka">Fondo de página · Wallpaper · Takeover</p>
+      <p class="fmt__desc">La marca no compra un hueco: compra el fondo. Los laterales de la web y la franja superior se “visten” con su imagen y el contenido queda enmarcado en el centro. Típico de periódicos deportivos y grandes lanzamientos.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>Fondo completo (≈ 1920 px de ancho)</dd></div>
+        <div><dt>Dónde</dt><dd>Detrás del contenido, a los lados</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="3"></span></dd></div>
+      </dl>
+      <p class="fact"><b>Pruébalo.</b> Mira los bordes de tu pantalla: esta web se acaba de vestir con la marca. Se quita cuando sigues bajando (en pantallas anchas se ve mejor). <button class="replay" type="button" data-show-skin>Vestirla otra vez ↔</button></p>
+    </div>
+  </article>
+
+  <!-- 13 PRE-ROLL -->
+  <article class="fmt" id="pre-roll" data-cat="video">
+    <div class="fmt__stage" style="--dur:10s">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>videos.online/ver</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <div class="cols">
+              <div>
+                <b class="ttl"></b>
+                <div class="player">
+                  <div class="player__content"><i class="play"></i><span>Tu vídeo</span><b class="prog"></b></div>
+                  <div class="ad player__ad" style="--fs:30">
+                    <span>Primero, el anuncio</span>
+                    <em class="chip-ad">Anuncio · 0:15</em>
+                    <em class="skip-btn">Saltar anuncio ▸</em>
+                    <b class="prog"></b>
+                  </div>
+                </div>
+                <div class="lines" data-n="5"></div>
+              </div>
+              <div><b class="box" style="--h:110"></b><b class="box" style="--h:110"></b><b class="box" style="--h:110"></b><b class="box" style="--h:110"></b></div>
+            </div>
+          </div>
+          <svg class="cursor cur-pr" viewBox="0 0 24 24"><path d="M5 3v16l4.5-4.2 3.1 6.7 2.6-1.2-3-6.6 6.3-.3z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">13 <span>Vídeo</span></p>
+      <h2>Pre-roll</h2>
+      <p class="fmt__aka">In-stream · Mid-roll · Post-roll</p>
+      <p class="fmt__desc">El anuncio que tienes que ver antes de tu vídeo. Si aparece a mitad se llama <b>mid-roll</b>, y al final, <b>post-roll</b>. Muchos te dejan saltarlo tras unos segundos.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>La del reproductor (16:9)</dd></div>
+        <div><dt>Duración</dt><dd>6, 15 o 30 segundos</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="4"></span></dd></div>
+      </dl>
+      <p class="fact"><b>Dato.</b> El botón “Saltar anuncio” de YouTube aparece a los 5 segundos: el tiempo que la marca tiene para engancharte.</p>
+    </div>
+  </article>
+
+  <!-- 14 IN-READ -->
+  <article class="fmt" id="in-read" data-cat="video">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>cultura.magazine/reportaje</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="scroll scroll--ir">
+            <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+            <div class="article">
+              <b class="ttl"></b>
+              <div class="lines" data-n="7"></div>
+              <div class="ir">
+                <div class="ad ir__ad" style="--fs:28"><i class="play"></i><span>Se abre al leer</span><b class="prog"></b></div>
+              </div>
+              <div class="lines" data-n="18"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">14 <span>Vídeo</span></p>
+      <h2>In-read</h2>
+      <p class="fmt__aka">Outstream · In-article</p>
+      <p class="fmt__desc">Un vídeo que vive escondido entre dos párrafos. Cuando llegas a ese punto del texto, se abre un hueco y empieza a reproducirse (sin sonido). Si sigues bajando, se pausa o se cierra.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>El ancho del texto, en 16:9</dd></div>
+        <div><dt>Se activa</dt><dd>Al hacer scroll hasta él</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="3"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 15 BANNER MÓVIL -->
+  <article class="fmt" id="banner-movil" data-cat="movil">
+    <div class="fmt__stage">
+      <div class="phone">
+        <div class="screen" aria-hidden="true">
+          <div class="ph-status"></div>
+          <div class="ph-top"><b class="logo"></b><i class="burger"></i></div>
+          <div class="ph-body">
+            <div class="ad c pop" style="--w:320;--h:50;--mb:20;--fs:20"><span>320 × 50</span></div>
+            <b class="ttl"></b><b class="img" style="--h:170"></b>
+            <div class="lines" data-n="4"></div>
+            <div class="ad c pop" style="--w:320;--h:100;--mb:20;--fs:20"><span>320 × 100</span></div>
+            <div class="lines" data-n="8"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">15 <span>Móvil</span></p>
+      <h2>Banner móvil</h2>
+      <p class="fmt__aka">Mobile banner · Large mobile banner</p>
+      <p class="fmt__desc">La versión de bolsillo del megabanner. En una pantalla de móvil no caben 728 píxeles, así que la tira se encoge hasta 320 de ancho y se intercala entre el contenido.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>320 × 50 px · grande 320 × 100 px</dd></div>
+        <div><dt>Dónde</dt><dd>Arriba y entre bloques de contenido</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="1"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 16 ANCLADO / STICKY -->
+  <article class="fmt" id="anclado" data-cat="movil">
+    <div class="fmt__stage">
+      <div class="phone">
+        <div class="screen" aria-hidden="true">
+          <div class="scroll scroll--ph">
+            <div class="ph-status"></div>
+            <div class="ph-top"><b class="logo"></b><i class="burger"></i></div>
+            <div class="ph-body">
+              <b class="ttl"></b><b class="img" style="--h:170"></b>
+              <div class="lines" data-n="10"></div>
+              <b class="img" style="--h:170"></b>
+              <div class="lines" data-n="14"></div>
+            </div>
+          </div>
+          <div class="ad sticky" style="--w:320;--h:50;--fs:20"><span>Siempre aquí</span><i class="x">×</i></div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">16 <span>Móvil</span></p>
+      <h2>Anclado</h2>
+      <p class="fmt__aka">Sticky · Adhesion · Footer</p>
+      <p class="fmt__desc">Se pega al borde inferior de la pantalla y no se mueve. Tú haces scroll, el contenido sube, y el anuncio sigue ahí, pegado como un imán.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>320 × 50 px (máx. 30 % de la pantalla)</dd></div>
+        <div><dt>Dónde</dt><dd>Fijo abajo (a veces arriba)</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="3"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <!-- 17 NATIVA -->
+  <article class="fmt" id="nativa" data-cat="nativo">
+    <div class="fmt__stage">
+      <div class="browser">
+        <div class="browser__bar"><i></i><i></i><i></i><span>actualidad.es</span></div>
+        <div class="page" aria-hidden="true">
+          <div class="pg-top"><b class="logo"></b><span class="nav"><i></i><i></i><i></i><i></i></span></div>
+          <div class="wrap">
+            <b class="ttl" style="width:30%"></b>
+            <div class="feed3">
+              <div class="nc"><b class="img" style="--h:150"></b><b class="ln"></b><b class="ln s"></b></div>
+              <div class="nc"><b class="img" style="--h:150"></b><b class="ln"></b><b class="ln s"></b></div>
+              <div class="nc"><b class="img" style="--h:150"></b><b class="ln"></b><b class="ln s"></b></div>
+              <div class="nc"><b class="img" style="--h:150"></b><b class="ln"></b><b class="ln s"></b></div>
+              <div class="nc sp"><b class="img" style="--h:150"></b><b class="ln"></b><b class="ln s"></b><em>Patrocinado</em></div>
+              <div class="nc"><b class="img" style="--h:150"></b><b class="ln"></b><b class="ln s"></b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fmt__info">
+      <p class="fmt__num">17 <span>Nativo</span></p>
+      <h2>Publicidad nativa</h2>
+      <p class="fmt__aka">Native ads · Contenido patrocinado</p>
+      <p class="fmt__desc">El camaleón. Tiene el mismo aspecto que las noticias o los posts de alrededor, así que no parece un anuncio. Lo único que lo delata es una etiqueta pequeñita: “Patrocinado”.</p>
+      <dl class="spec">
+        <div><dt>Medida</dt><dd>La misma que el contenido real</dd></div>
+        <div><dt>Dónde</dt><dd>Entre las noticias, en los feeds de redes</dd></div>
+        <div><dt>Intrusión</dt><dd><span class="meter" data-v="1"></span></dd></div>
+      </dl>
+      <p class="fact"><b>Ojo.</b> Es el formato menos molesto… precisamente porque no lo ves venir. Por eso la etiqueta “Patrocinado” es obligatoria. Hay uno escondido en esta misma web… ¿lo encontrarás?</p>
+    </div>
+  </article>
+
+</main>
+
+<!-- ============ A ESCALA ============ -->
+<section class="scale" id="escala">
+  <div class="section-head">
+    <p class="eyebrow">Comparativa</p>
+    <h2>Todos <em>a escala</em></h2>
+    <p class="lead">Los formatos estándar superpuestos desde la misma esquina, con su tamaño real en píxeles. Pasa por encima de cada nombre.</p>
+  </div>
+  <div class="scale__body">
+    <div class="scale__board" aria-hidden="true"></div>
+    <div><ul class="scale__legend"></ul></div>
+  </div>
+</section>
+
+<!-- ============ GLOSARIO ============ -->
+<section class="glossary">
+  <div class="section-head">
+    <p class="eyebrow">Para hablar con propiedad</p>
+    <h2>Glosario <em>mínimo</em></h2>
+  </div>
+  <dl class="gloss">
+    <div><dt>Impresión</dt><dd>Cada vez que un anuncio aparece en una pantalla. Es la unidad básica con la que se cuenta todo.</dd></div>
+    <div><dt>CTR</dt><dd><i>Click-Through Rate.</i> El porcentaje de impresiones que acaban en clic. En banners suele estar muy por debajo del 1 %.</dd></div>
+    <div><dt>CPM</dt><dd>Coste por mil impresiones. Es la forma más común de vender espacio publicitario.</dd></div>
+    <div><dt>Visibilidad</dt><dd>Un banner cuenta como “visto” si al menos la mitad está en pantalla durante un segundo (dos en vídeo).</dd></div>
+    <div class="sponsored"><em>Patrocinado</em><dt>Banner Pro</dt><dd>Diseña banners que nadie se salta. Plantillas para los 17 formatos, listas en un clic. Pruébalo gratis 30 días.</dd></div>
+    <div><dt>IAB</dt><dd><i>Interactive Advertising Bureau.</i> La asociación que fija los tamaños estándar que ves en esta guía.</dd></div>
+    <div><dt>Rich media</dt><dd>Formatos que se mueven, se despliegan o reaccionan a lo que haces: expandibles, layers, intersticiales…</dd></div>
+    <div><dt>Retargeting</dt><dd>Cuando un anuncio te “persigue” por otras webs después de haber mirado un producto.</dd></div>
+    <div><dt>Adblocker</dt><dd>Extensión del navegador que oculta los anuncios. Por eso muchas webs te piden que la desactives.</dd></div>
+  </dl>
+  <p class="gloss-reveal" aria-live="polite"><b>¿Te has dado cuenta?</b> “Banner Pro” no es una definición: es <a href="#nativa">publicidad nativa</a>. Tenía el mismo aspecto que todo lo demás y solo la delataba una etiqueta pequeñita: “Patrocinado”.</p>
+</section>
+
+<footer class="foot">
+  <p>Anatomía del banner · Medidas en píxeles según los estándares IAB.</p>
+  <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Volver arriba ↑</a>
+</footer>
+
+<!-- Robapáginas "de verdad": aparece al llegar a su ficha y te sigue hasta que lo cierras -->
+<aside class="live-ad" id="live-ad" aria-label="Ejemplo de robapáginas" hidden>
+  <span class="live-ad__tag">AD</span>
+  <button class="live-ad__x" type="button" aria-label="Cerrar anuncio">×</button>
+  <p class="live-ad__size">300 × 250</p>
+  <p class="live-ad__msg">Soy un robapáginas de verdad.<br>Te sigo hasta que me cierres.</p>
+</aside>
+
+<!-- Intersticial "de verdad": tapa toda la web con cuenta atrás -->
+<div class="live-inter" id="live-inter" role="dialog" aria-modal="true" aria-label="Ejemplo de intersticial" hidden>
+  <span class="live-ad__tag">AD</span>
+  <button class="live-inter__skip" type="button" disabled>Ir a la web en <b>5</b></button>
+  <div class="live-inter__body">
+    <p class="live-inter__kicker">Intersticial · Cortinilla</p>
+    <p class="live-inter__title">Pantalla completa</p>
+    <p class="live-inter__msg">Esto es un intersticial de verdad: tapa toda la web y no te deja seguir hasta que termina la cuenta atrás.</p>
+  </div>
+  <span class="live-inter__bar"><i></i></span>
+</div>
+
+<!-- Skin "de verdad": los laterales de la web se visten con la marca -->
+<div class="live-skin" aria-hidden="true">
+  <div class="live-skin__side live-skin__side--l"><span>TU MARCA</span></div>
+  <div class="live-skin__side live-skin__side--r"><span>TU MARCA</span></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
